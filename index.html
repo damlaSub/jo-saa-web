@@ -4,10 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jonathan Saada — Peintre</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Jonathan Saada</title>
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"> -->
+  <!-- <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&family=Josefin+Sans:wght@100;300&display=swap"
+    rel="stylesheet"> -->
   <style>
     *,
     *::before,
@@ -17,6 +20,7 @@
       padding: 0;
     }
 
+
     :root {
       --black: #0a0a0a;
       --white: #ffffff;
@@ -24,22 +28,48 @@
       --grey-mid: #9a9591;
       --grey-dark: #4a4846;
       /* --border: #e0ddd9; */
-      --font: 'Figtree', sans-serif;
+      --font: 'Brown Pro', sans-serif;
       --nav-h: 68px;
       --max-w: 1160px;
+    }
+
+    @font-face {
+      font-family: 'Brown Pro';
+      src: url('fonts/BrownPro-Thin-CBYGkuCj.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Brown Pro';
+      src: url('fonts/BrownPro-Regular-D_LjtTjE.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Brown Pro';
+      src: url('fonts/BrownPro-Bold-OW29qoPv.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
     }
 
     html {
       scroll-behavior: smooth;
     }
 
-    body {
-      font-family: var(--font);
-      background: var(--white);
-      color: var(--black);
-      font-size: 15px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
+
+    h1,
+    h2 {
+      font-weight: 700;
+      /* Bold */
+    }
+
+    .detail-painting-name {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
     }
 
     a {
@@ -80,7 +110,7 @@
     }
 
     .logo-svg {
-      height: 26px;
+      height: 22px;
       width: auto;
     }
 
@@ -348,6 +378,26 @@
       object-fit: contain;
     }
 
+    .detail-meta {
+      margin-top: 8px;
+    }
+
+    .detail-meta-line {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--grey-dark);
+      line-height: 1.9;
+    }
+
+    /* .detail-meta-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--black);
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    } */
+
     @keyframes slideFromRight {
       from {
         opacity: 0;
@@ -551,10 +601,10 @@
     }
 
     .bio-text-col p {
-      font-size: 15px;
-      line-height: 1.9;
+      font-size: 13px;
+      line-height: 1.75;
       color: var(--grey-dark);
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     .bio-text-col p:last-child {
@@ -575,34 +625,46 @@
       max-width: 560px;
     }
 
-    .contact-item {
-      padding: 28px 0;
-      border-bottom: 1px solid var(--border);
+
+
+    #view-contact {
+      padding: 72px 40px 80px;
     }
 
-    .contact-item:first-child {
-      border-top: 1px solid var(--border);
+    .contact-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
     }
 
-    .contact-label {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--grey-mid);
-      margin-bottom: 8px;
-    }
-
-    .contact-value {
-      font-size: 28px;
+    .contact-title {
+      font-size: 16px;
       font-weight: 300;
-      letter-spacing: -0.01em;
+      color: var(--grey-dark);
+      line-height: 2;
     }
 
-    .contact-value a:hover {
-      text-decoration: underline;
-      text-underline-offset: 5px;
+    .contact-line {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--grey-dark);
+      line-height: 2;
     }
+
+    .contact-line a {
+      color: var(--grey-dark);
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .contact-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      color: var(--grey-dark);
+    }
+
 
     /* ── LEGAL PAGES ── */
     #view-legal {
@@ -689,13 +751,12 @@
     .footer-inner {
       max-width: var(--max-w);
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 48px;
+      display: flex;
+      justify-content: center;
+      /* center links */
       padding-bottom: 48px;
     }
 
-    /* col 1 — brand */
     .footer-name {
       font-size: 13px;
       font-weight: 600;
@@ -710,7 +771,8 @@
       line-height: 1.7;
     }
 
-    /* col 2 — legal links */
+
+
     .footer-links h4 {
       font-size: 10px;
       letter-spacing: 0.18em;
@@ -725,6 +787,8 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      align-items: flex-start;
+      /* ← left */
     }
 
     .footer-links a {
@@ -738,34 +802,7 @@
       color: rgba(255, 255, 255, 0.85);
     }
 
-    /* col 3 — mentions summary */
-    .footer-mentions h4 {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 16px;
-      font-weight: 500;
-    }
 
-    .footer-mentions p {
-      font-size: 11px;
-      line-height: 1.85;
-      margin-bottom: 7px;
-    }
-
-    .footer-mentions strong {
-      color: rgba(255, 255, 255, 0.55);
-      font-weight: 400;
-    }
-
-    .footer-mentions a {
-      color: rgba(255, 255, 255, 0.38);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    /* bottom bar */
     .footer-bottom {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -782,6 +819,14 @@
     @media (max-width: 1000px) {
       .paintings-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 640px) {
+        .footer-links ul {
+          align-items: center;
+          /* ← center */
+          text-align: center;
+        }
       }
 
       .detail-layout {
@@ -810,6 +855,7 @@
     @media (max-width: 640px) {
       :root {
         --nav-h: 60px;
+        --font: 'Brown Pro', sans-serif;
       }
 
       #view-oeuvres,
@@ -853,6 +899,80 @@
         padding: 44px 20px 0;
       }
     }
+
+    /* ── TYPOGRAPHY SETTINGS ── */
+
+    /* Body text */
+    body {
+      font-family: 'Brown Pro', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+      color: #0a0a0a;
+    }
+
+    /* Navigation links — uppercase, tight tracking */
+    .nav-link {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Large titles (painting names, section heads) */
+    .detail-painting-name,
+    .view-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 300;
+      /* light weight = Piasa elegance */
+      letter-spacing: -0.02em;
+      /* negative tracking on large text */
+      line-height: 1.05;
+    }
+
+    /* Small labels (Technique, Année, Prix...) */
+    .detail-meta-label,
+    .contact-label,
+    .view-eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      /* wide tracking on small caps */
+      text-transform: uppercase;
+    }
+
+    /* Medium values (technique value, year value) */
+    .detail-meta-value {
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    /* Painting name in grid */
+    .painting-name {
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 0.005em;
+    }
+
+    /* Painting meta (technique · year) */
+    .painting-meta {
+      font-size: 12px;
+      font-weight: 400;
+      color: #9a9591;
+      letter-spacing: 0.03em;
+    }
+
+
+
+    /* Footer name */
+    .footer-name {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
   </style>
 </head>
 
@@ -863,12 +983,15 @@
       <!-- Replace SVG with <img class="logo-img" src="images/logo.svg" alt="Jonathan Saada"> when ready -->
       <div class="logo-wrap" onclick="navigate('oeuvres')" role="button" tabindex="0"
         onkeydown="if(event.key==='Enter')navigate('oeuvres')" aria-label="Accueil">
-        <svg class="logo-svg" viewBox="0 0 360 32" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="22" font-family="Figtree, sans-serif" font-weight="600" font-size="28" fill="#0a0a0a"
-            letter-spacing="7">
-            JONATHAN SAADA
-          </text>
-        </svg>
+        <span style="
+  font-family: 'Brown Pro', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  white-space: nowrap;
+">Jonathan Saada</span>
       </div>
       <nav class="desk" id="desk-nav"></nav>
       <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobile()">
@@ -881,14 +1004,12 @@
 
   <div id="app">
 
-    <!-- OEUVRES GRID -->
     <div id="view-oeuvres" class="view active">
       <div class="oeuvres-inner">
         <div class="paintings-grid" id="paintings-grid"></div>
       </div>
     </div>
 
-    <!-- PAINTING DETAIL -->
     <div id="view-detail" class="view">
       <div class="detail-inner">
         <button class="back-link" onclick="navigate('oeuvres')">
@@ -926,7 +1047,6 @@
       </div>
     </div>
 
-    <!-- BIOGRAPHY -->
     <div id="view-bio" class="view">
       <div class="bio-inner">
         <p class="view-eyebrow" id="eyebrow-bio"></p>
@@ -939,15 +1059,13 @@
       </div>
     </div>
 
-    <!-- CONTACT -->
     <div id="view-contact" class="view">
       <div class="contact-inner">
-        <p class="view-eyebrow" id="eyebrow-contact"></p>
+        <!-- <p class="view-eyebrow" id="eyebrow-contact"></p> -->
         <div class="contact-block" id="contact-block"></div>
       </div>
     </div>
 
-    <!-- LEGAL PAGES (cookies / mentions / confidentialité) -->
     <div id="view-legal" class="view">
       <div class="legal-inner">
         <button class="legal-back" onclick="navigate('oeuvres')">
@@ -962,26 +1080,16 @@
 
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-
-      <!-- Col 1: Brand -->
       <div class="footer-brand" id="footer-brand"></div>
-
-      <!-- Col 2: Legal page links -->
       <div class="footer-links">
-        <h4 id="footer-links-title">Informations légales</h4>
         <ul>
           <li><a onclick="navigate('cookies')" href="#cookies">Politique en matière de cookies</a></li>
           <li><a onclick="navigate('mentions')" href="#mentions">Mentions légales</a></li>
           <li><a onclick="navigate('confidentialite')" href="#confidentialite">Politique de confidentialité</a></li>
         </ul>
       </div>
-
-      <!-- Col 3: Key legal summary -->
-      <div class="footer-mentions" id="footer-mentions"></div>
-
     </div>
     <div class="footer-bottom" id="footer-bottom"></div>
   </footer>
@@ -1157,21 +1265,15 @@
       const images = p.images && p.images.length ? p.images : [p.cover];
 
       document.getElementById('back-label').textContent = t.back;
-      document.getElementById('detail-name').textContent = name;
+      document.getElementById('detail-name').innerHTML = `<strong>${name}</strong>`;
+      const metaLines = [
+        p.year ? `<p class="detail-meta-line">(${p.year})</p>` : '',
+        tech ? `<p class="detail-meta-line">${tech}</p>` : '',
+        p.dimensions ? `<p class="detail-meta-line">${p.dimensions}</p>` : '',
+        p.price ? `<p class="detail-meta-line detail-meta-price">${p.price}</p>` : '',
+      ].filter(Boolean).join('');
 
-      const metaRows = [
-        [t.year_label, p.year, false],
-        [t.technique_label, tech, false],
-        ...(p.dimensions ? [[t.dimensions_label, p.dimensions, false]] : []),
-        ...(p.price ? [[t.price_label, p.price, true]] : []),
-      ];
-
-      document.getElementById('detail-meta').innerHTML = metaRows.map(([lbl, val, isPrice]) =>
-        `<div class="detail-meta-row${isPrice ? ' price-row' : ''}">
-          <dt class="detail-meta-label">${lbl}</dt>
-          <dd class="detail-meta-value">${val}</dd>
-        </div>`
-      ).join('');
+      document.getElementById('detail-meta').innerHTML = metaLines;
 
       const mainImg = document.getElementById('detail-main-img');
       mainImg.src = images[currentThumbIdx] || '';
@@ -1218,7 +1320,6 @@
     /* ── BIO ── */
     function renderBio() {
       const t = T();
-      document.getElementById('eyebrow-bio').textContent = t.nav_bio;
       const photoEl = document.getElementById('bio-photo');
       const src = bio.photo && bio.photo.src ? bio.photo.src : '';
       photoEl.innerHTML = src
@@ -1236,23 +1337,17 @@
       </svg>`;
     }
 
-    /* ── CONTACT ── */
+
     function renderContact() {
       const t = T();
       const c = (site && site.contact) ? site.contact : FB_SITE.contact;
-      document.getElementById('eyebrow-contact').textContent = t.nav_contact;
       document.getElementById('contact-block').innerHTML = `
-        <div class="contact-item">
-          <p class="contact-label">${t.email_label}</p>
-          <p class="contact-value"><a href="mailto:${c.email}">${c.email}</a></p>
-        </div>
-        <div class="contact-item">
-          <p class="contact-label">${t.phone_label}</p>
-          <p class="contact-value"><a href="${c.phone_href}">${c.phone}</a></p>
-        </div>`;
+    <p class="contact-title">Contact</p>
+    <p class="contact-line"><a href="mailto:${c.email}">${c.email}</a></p>
+    <p class="contact-line"><a href="${c.phone_href}">${c.phone}</a></p>`;
     }
 
-    /* ── LEGAL PAGES ── */
+    /* ── LEGAL ── */
     function renderLegal(page) {
       const t = T();
       document.getElementById('legal-back-label').textContent = t.back_home;
@@ -1270,43 +1365,41 @@
         <h2>3. Tableau des cookies</h2>
         <p>Ce site utilise uniquement un cookie de préférence linguistique (stocké localement dans votre navigateur) afin de mémoriser la langue choisie entre le français et l'anglais. Aucun cookie tiers n'est déposé.</p>
         <h2>4. Vos choix</h2>
-        <p>Pour en savoir plus sur les cookies, notamment sur la manière de voir quels cookies ont été définis et de comprendre comment les gérer, les supprimer ou les bloquer, visitez <a href="https://aboutcookies.org/" target="_blank" rel="noopener">aboutcookies.org</a> ou <a href="https://www.allaboutcookies.org/fr/" target="_blank" rel="noopener">allaboutcookies.org</a>.</p>
-        <p>Il est également possible d'empêcher votre navigateur d'accepter les cookies en modifiant les paramètres concernés dans votre navigateur. Vous pouvez généralement trouver ces paramètres dans le menu « Options » ou « Préférences » de votre navigateur.</p>
+        <p>Pour en savoir plus sur les cookies, visitez <a href="https://aboutcookies.org/" target="_blank" rel="noopener">aboutcookies.org</a> ou <a href="https://www.allaboutcookies.org/fr/" target="_blank" rel="noopener">allaboutcookies.org</a>.</p>
         <ul>
           <li><a href="https://support.mozilla.org/fr/kb/cookies-informations-sites-enregistrent" target="_blank" rel="noopener">Paramètres des cookies dans Firefox</a></li>
           <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Paramètres des cookies dans Google Chrome</a></li>
           <li><a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Paramètres des cookies dans Safari (OS X)</a></li>
           <li><a href="https://support.apple.com/fr-fr/HT201265" target="_blank" rel="noopener">Paramètres des cookies dans Safari (iOS)</a></li>
         </ul>
-        <p>Il se peut que nous modifiions cette politique en matière de cookies. Nous vous encourageons à consulter régulièrement cette page pour obtenir les dernières informations.</p>
+        <p>Il se peut que nous modifiions cette politique en matière de cookies. Nous vous encourageons à consulter régulièrement cette page.</p>
       `,
       mentions: `
         <h1>Mentions légales</h1>
         <h2>Éditeur du site</h2>
-        <p>Jonathan Saada, artiste-peintre exerçant en nom propre.<br>
-        Siret : 000 000 000 00000 — APE : 9003B (Création artistique relevant des arts plastiques)</p>
+        <p>Jonathan Saada, artiste-peintre exerçant en nom propre.<br>Siret : 000 000 000 00000 — APE : 9003B</p>
         <h2>Directeur de la publication</h2>
         <p>Jonathan Saada</p>
         <h2>Hébergeur</h2>
         <p>À renseigner — nom, adresse et pays de l'hébergeur.</p>
         <h2>Propriété intellectuelle</h2>
-        <p>L'ensemble des œuvres, photographies et contenus présents sur ce site sont protégés par le droit d'auteur en vertu du Code de la propriété intellectuelle (art. L. 111-1). Toute reproduction, représentation, modification, publication ou adaptation, même partielle, est strictement interdite sans autorisation écrite préalable de Jonathan Saada.</p>
+        <p>L'ensemble des œuvres, photographies et contenus présents sur ce site sont protégés par le droit d'auteur (CPI, art. L. 111-1). Toute reproduction sans autorisation écrite préalable est interdite.</p>
         <h2>Données personnelles</h2>
-        <p>Conformément au Règlement général sur la protection des données (RGPD — UE 2016/679) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de portabilité et d'effacement des données vous concernant. Pour exercer ces droits, contactez : <a href="mailto:jonathan.saada@gmail.com">jonathan.saada@gmail.com</a></p>
+        <p>Conformément au RGPD (UE 2016/679), vous disposez d'un droit d'accès, de rectification et d'effacement. Contact : <a href="mailto:jonathan.saada@gmail.com">jonathan.saada@gmail.com</a></p>
         <h2>Litiges</h2>
-        <p>En cas de litige, une solution amiable sera recherchée avant tout recours judiciaire. Médiation disponible via la Médiation de la consommation : <a href="https://www.economie.gouv.fr/mediation-conso" target="_blank" rel="noopener">economie.gouv.fr/mediation-conso</a></p>
+        <p>En cas de litige, une solution amiable sera recherchée. Médiation via : <a href="https://www.economie.gouv.fr/mediation-conso" target="_blank" rel="noopener">economie.gouv.fr/mediation-conso</a></p>
       `,
       confidentialite: `
         <h1>Politique de confidentialité</h1>
-        <p>La présente politique de confidentialité décrit la façon dont ce site traite les informations de ses visiteurs.</p>
+        <p>La présente politique décrit la façon dont ce site traite les informations de ses visiteurs.</p>
         <h2>Données collectées</h2>
-        <p>Ce site ne collecte aucune donnée personnelle. Aucun formulaire, aucun compte utilisateur, aucun service de newsletter n'est proposé. Le seul élément stocké localement dans votre navigateur est une préférence de langue (français/anglais), qui ne quitte jamais votre appareil.</p>
+        <p>Ce site ne collecte aucune donnée personnelle. Le seul élément stocké localement est une préférence de langue (français/anglais), qui ne quitte jamais votre appareil.</p>
         <h2>Cookies</h2>
-        <p>Ce site n'utilise pas de cookies tiers. Aucun outil d'analyse ou de suivi publicitaire n'est actif. Pour plus d'informations, consultez notre <a href="#cookies" onclick="navigate('cookies')">Politique en matière de cookies</a>.</p>
+        <p>Ce site n'utilise pas de cookies tiers. Pour plus d'informations, consultez notre <a href="#cookies" onclick="navigate('cookies')">Politique en matière de cookies</a>.</p>
         <h2>Partage des données</h2>
-        <p>Aucune donnée personnelle n'est collectée, et donc aucune donnée n'est partagée avec des tiers.</p>
+        <p>Aucune donnée personnelle n'est collectée ni partagée avec des tiers.</p>
         <h2>Vos droits</h2>
-        <p>Conformément au RGPD (Règlement UE 2016/679), vous disposez de droits sur vos données personnelles. Pour toute question relative à la protection de vos données, contactez : <a href="mailto:jonathan.saada@gmail.com">jonathan.saada@gmail.com</a></p>
+        <p>Conformément au RGPD, pour toute question : <a href="mailto:jonathan.saada@gmail.com">jonathan.saada@gmail.com</a></p>
         <h2>Modifications</h2>
         <p>Cette politique peut être mise à jour. La version en vigueur est celle publiée sur cette page.</p>
       `,
@@ -1318,23 +1411,12 @@
       const l = (site && site.legal) ? site.legal : FB_SITE.legal;
       const a = (bio && bio.artist) ? bio.artist : FB_BIO.artist;
 
-      document.getElementById('footer-brand').innerHTML = `
-        <p class="footer-name">${a.first_name} ${a.last_name}</p>
-        <p>${a['profession_' + lang]} · Paris, France</p>`;
+      document.getElementById('footer-brand').innerHTML = '';
 
-      document.getElementById('footer-links-title').textContent =
-        lang === 'fr' ? 'Informations légales' : 'Legal information';
-
-      document.getElementById('footer-mentions').innerHTML = `
-        <h4>${t.mentions_title}</h4>
-        <p><strong>${t.f_editor}</strong> ${a.first_name} ${a.last_name}, exerçant en nom propre — Siret : ${l.siret} — APE : ${l.ape}</p>
-        <p><strong>${t.f_host}</strong> ${l.host_name} — ${l.host_address}</p>
-        <p><strong>${t.f_rgpd}</strong> ${t.f_rgpd_body} <a href="mailto:${l.gdpr_email}">${l.gdpr_email}</a></p>
-        <p><strong>${t.f_ip}</strong> ${t.f_ip_body}</p>`;
 
       document.getElementById('footer-bottom').innerHTML = `
-        <span>© ${l.copyright_year} ${a.first_name} ${a.last_name}. ${t.all_rights}</span>
-        <span>${t.made_with}</span>`;
+    <span>© ${l.copyright_year} ${a.first_name} ${a.last_name}. ${t.all_rights}</span>
+    <span>${t.made_with}</span>`;
     }
 
     /* ── MOBILE ── */
@@ -1352,56 +1434,52 @@
       return ({
         fr: {
           nav_oeuvres: 'Œuvres', nav_bio: 'Biographie', nav_contact: 'Contact',
-          back: 'Œuvres',
-          back_home: 'Retour',
+          back: 'Œuvres', back_home: 'Retour',
           technique_label: 'Technique', dimensions_label: 'Dimensions',
           year_label: 'Année', price_label: 'Prix',
           prev: 'Précédent', next: 'Suivant',
           email_label: 'Email', phone_label: 'Téléphone',
           mentions_title: 'Mentions légales',
-          f_editor: 'Éditeur :',
-          f_host: 'Hébergeur :',
+          f_editor: 'Éditeur :', f_host: 'Hébergeur :',
           f_rgpd: 'Données (RGPD) :',
           f_rgpd_body: "Ce site ne collecte aucune donnée personnelle. Contact :",
           f_ip: 'Propriété intellectuelle :',
           f_ip_body: "Toutes les œuvres sont protégées par le droit d'auteur (CPI, art. L. 111-1).",
           all_rights: 'Tous droits réservés.',
-          made_with: 'Site réalisé avec soin par Damla.',
+          made_with: 'Site réalisé avec soin par <a href="mailto:d.subasi781@gmail.com" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Damla</a>.',
         },
         en: {
           nav_oeuvres: 'Works', nav_bio: 'Biography', nav_contact: 'Contact',
-          back: 'Works',
-          back_home: 'Back',
+          back: 'Works', back_home: 'Back',
           technique_label: 'Medium', dimensions_label: 'Dimensions',
           year_label: 'Year', price_label: 'Price',
           prev: 'Previous', next: 'Next',
           email_label: 'Email', phone_label: 'Phone',
           mentions_title: 'Legal notices',
-          f_editor: 'Publisher:',
-          f_host: 'Host:',
+          f_editor: 'Publisher:', f_host: 'Host:',
           f_rgpd: 'Data (GDPR):',
           f_rgpd_body: 'This site collects no personal data. Contact:',
           f_ip: 'Intellectual property:',
           f_ip_body: 'All artworks protected by copyright (French IP Code, art. L. 111-1).',
           all_rights: 'All rights reserved.',
-          made_with: 'Crafted with care by Damla.',
+          made_with: 'Crafted with care by <a href="mailto:d.subasi781@gmail.com" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Damla</a>.',
         },
       })[lang];
     }
 
-    /* ── FALLBACK DATA ── */
+    /* ── FALLBACK DATA (exact mirror of JSON files — update both together) ── */
     const FB_PAINTINGS = [
       { id: "tama", name_fr: "Tama", name_en: "Tama", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "46 × 38 cm", price: "2 000 €", images: ["images/paintings/tama.png", "images/paintings/tama-detail.jpg"], cover: "images/paintings/tama.png" },
-      { id: "maelle", name_fr: "Maëlle", name_en: "Maëlle", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "195x130 cm", price: "9 000 €", images: ["images/paintings/maelle.jpg", "images/paintings/IMG_5129.jpg", "images/paintings/IMG_5126.jpg", "images/paintings/IMG_5125.jpg", "images/paintings/IMG_5127.jpg"], cover: "images/paintings/maelle.jpg" },
-      { id: "circe-mythos-1", name_fr: "Circé (Mythos 1)", name_en: "Circé (Mythos 1)", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "195x130 cm", price: "9 000 €", images: ["images/paintings/circe.jpg", "images/paintings/IMG_5124.jpg", "images/paintings/IMG_5118.jpg", "images/paintings/IMG_5123.jpg", "images/paintings/IMG_5122.jpg"], cover: "images/paintings/circe.jpg" },
-      { id: "vinicius", name_fr: "Vinicius", name_en: "Vinicius", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "61 x 46 cm", price: "3 000 €", images: ["images/paintings/IMG_8763_edited.jpg", "images/paintings/vinicius_visage.JPEG"], cover: "images/paintings/IMG_8763_edited.jpg" },
+      { id: "maelle", name_fr: "Maëlle", name_en: "Maëlle", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/maelle.jpg", "images/paintings/IMG_5129.jpg", "images/paintings/IMG_5126.jpg", "images/paintings/IMG_5125.jpg", "images/paintings/IMG_5127.jpg"], cover: "images/paintings/maelle.jpg" },
+      { id: "circe-mythos-1", name_fr: "Circé (Mythos 1)", name_en: "Circé (Mythos 1)", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/circe.jpg", "images/paintings/IMG_5124.jpg", "images/paintings/IMG_5118.jpg", "images/paintings/IMG_5123.jpg", "images/paintings/IMG_5122.jpg"], cover: "images/paintings/circe.jpg" },
+      { id: "vinicius", name_fr: "Vinicius", name_en: "Vinicius", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "61 × 46 cm", price: "3 000 €", images: ["images/paintings/IMG_8763_edited.jpg", "images/paintings/vinicius_visage.JPEG"], cover: "images/paintings/IMG_8763_edited.jpg" },
       { id: "lou-allongee", name_fr: "Lou allongée", name_en: "Lou allongée", technique_fr: "Huile sur bois", technique_en: "Oil on wood", year: 2023, dimensions: "130 × 89 cm", price: "Vendu", images: ["images/paintings/lou_edited.jpg", "images/paintings/lou_visage.JPEG", "images/paintings/lou_jambes.JPEG", "images/paintings/lou_drape.JPEG"], cover: "images/paintings/lou_edited.jpg" },
-      { id: "sans-titre", name_fr: "Sans titre", name_en: "Untitled", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "", price: "", images: ["images/paintings/sans-titre.jpg"], cover: "images/paintings/sans-titre.jpg" },
-      { id: "thomas-r", name_fr: "Thomas R", name_en: "Thomas R", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "", price: "", images: ["images/paintings/thomas-r.jpg"], cover: "images/paintings/thomas-r.jpg" },
-      { id: "interieur-a-nice", name_fr: "Intérieur à Nice", name_en: "Interior in Nice", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "", price: "", images: ["images/paintings/interieur-nice.jpg"], cover: "images/paintings/interieur-nice.jpg" },
-      { id: "gregoire-et-thomas", name_fr: "Grégoire et Thomas", name_en: "Grégoire et Thomas", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "", price: "", images: ["images/paintings/gregoire-thomas.jpg"], cover: "images/paintings/gregoire-thomas.jpg" },
-      { id: "tamazirt-smaili", name_fr: "Tamazirt Smaili", name_en: "Tamazirt Smaili", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "", price: "", images: ["images/paintings/tamazirt-smaili.jpg"], cover: "images/paintings/tamazirt-smaili.jpg" },
-      { id: "elsa", name_fr: "Elsa", name_en: "Elsa", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "", price: "", images: ["images/paintings/elsa.jpg"], cover: "images/paintings/elsa.jpg" },
+      { id: "sans-titre", name_fr: "Sans titre", name_en: "Untitled", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "110x 125 cm", price: "4500 €", images: ["images/paintings/Sleeping L_edited.jpg", "images/paintings/IMG_5144.jpg", "images/paintings/IMG_5142.jpg", "images/paintings/IMG_5143.jpg", "images/paintings/IMG_5141.jpg"], cover: "images/paintings/Sleeping L_edited.jpg" },
+      { id: "thomas-r", name_fr: "Thomas R", name_en: "Thomas R", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "160 × 110 cm", price: "7 000 €", images: ["images/paintings/thomas-r.jpg", "images/paintings/IMG_4939.jpg", "images/paintings/IMG_5148.jpg", "images/paintings/IMG_5149.jpg"], cover: "images/paintings/thomas-r.jpg" },
+      { id: "interieur-a-nice", name_fr: "Intérieur à Nice", name_en: "Interior in Nice", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "86 × 95 cm", price: "4 500 €", images: ["images/paintings/interieur-nice.jpg", "images/paintings/lou et axel_visage lou.JPEG", "images/paintings/lou et axel_visage axel.JPEG", "images/paintings/lou et axel_main lou.JPEG", "images/paintings/lou et axel_main axel.JPEG"], cover: "images/paintings/interieur-nice.jpg" },
+      { id: "gregoire-et-thomas", name_fr: "Grégoire et Thomas", name_en: "Grégoire et Thomas", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "160 × 110 cm", price: "4 000 €", images: ["images/paintings/gregoire-thomas.jpg", "images/paintings/IMG_4948.jpg", "images/paintings/IMG_4951.jpg", "images/paintings/IMG_4950.jpg", "images/paintings/IMG_4949.jpg"], cover: "images/paintings/gregoire-thomas.jpg" },
+      { id: "tamazirt-smaili", name_fr: "Tamazirt Smaili", name_en: "Tamazirt Smaili", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "130 × 89 cm", price: "5 000 €", images: ["images/paintings/tamazirt-smaili.jpg", "images/paintings/IMG_5164.jpg", "images/paintings/IMG_5170.jpg", "images/paintings/IMG_5166.jpg", "images/paintings/IMG_5171.jpg"], cover: "images/paintings/tamazirt-smaili.jpg" },
+      { id: "elsa", name_fr: "Elsa", name_en: "Elsa", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/elsa.jpg", "images/paintings/IMG_5152.jpg", "images/paintings/IMG_5155.jpg", "images/paintings/IMG_5151.jpg", "images/paintings/IMG_5159.jpg", "images/paintings/IMG_5162.jpg"], cover: "images/paintings/elsa.jpg" },
     ];
 
     const FB_BIO = {
@@ -1423,7 +1501,7 @@
 
     const FB_SITE = {
       contact: { email: "jonathan.saada@gmail.com", phone: "+33 (0)6 22 14 87 36", phone_href: "tel:+33622148736" },
-      legal: { siret: "000 000 000 00000", ape: "9003B", host_name: "À renseigner", host_address: "Adresse, pays", gdpr_email: "jonathan.saada@gmail.com", copyright_year: "2025" },
+      legal: { siret: "000 000 000 00000", ape: "9003B", host_name: "À renseigner", host_address: "Adresse de l'hébergeur, pays", gdpr_email: "jonathan.saada@gmail.com", copyright_year: "2025" },
     };
 
     boot();

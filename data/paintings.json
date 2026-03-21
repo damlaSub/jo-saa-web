@@ -5,13 +5,14 @@
     "name_en": "Tama",
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
-    "year": 2024,
-    "dimensions": "",
+    "year": 2025,
+    "dimensions": "46 × 38 cm",
+    "price": "2 000 €",
     "images": [
-      "images/paintings/tama.jpg",
+      "images/paintings/tama.png",
       "images/paintings/tama-detail.jpg"
     ],
-    "cover": "images/paintings/tama.jpg"
+    "cover": "images/paintings/tama.png"
   },
   {
     "id": "maelle",
@@ -20,9 +21,14 @@
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
     "year": 2026,
-    "dimensions": "",
+    "dimensions": "195 × 130 cm",
+    "price": "9 000 €",
     "images": [
-      "images/paintings/maelle.jpg"
+      "images/paintings/maelle.jpg",
+      "images/paintings/IMG_5129.jpg",
+      "images/paintings/IMG_5126.jpg",
+      "images/paintings/IMG_5125.jpg",
+      "images/paintings/IMG_5127.jpg"
     ],
     "cover": "images/paintings/maelle.jpg"
   },
@@ -33,9 +39,14 @@
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
     "year": 2025,
-    "dimensions": "",
+    "dimensions": "195 × 130 cm",
+    "price": "9 000 €",
     "images": [
-      "images/paintings/circe.jpg"
+      "images/paintings/circe.jpg",
+      "images/paintings/IMG_5124.jpg",
+      "images/paintings/IMG_5118.jpg",
+      "images/paintings/IMG_5123.jpg",
+      "images/paintings/IMG_5122.jpg"
     ],
     "cover": "images/paintings/circe.jpg"
   },
@@ -46,11 +57,13 @@
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
     "year": 2024,
-    "dimensions": "",
+    "dimensions": "61 × 46 cm",
+    "price": "3 000 €",
     "images": [
-      "images/paintings/vinicius.jpg"
+      "images/paintings/IMG_8763_edited.jpg",
+      "images/paintings/vinicius_visage.JPEG"
     ],
-    "cover": "images/paintings/vinicius.jpg"
+    "cover": "images/paintings/IMG_8763_edited.jpg"
   },
   {
     "id": "lou-allongee",
@@ -59,11 +72,15 @@
     "technique_fr": "Huile sur bois",
     "technique_en": "Oil on wood",
     "year": 2023,
-    "dimensions": "",
+    "dimensions": "130 × 89 cm",
+    "price": "Vendu",
     "images": [
-      "images/paintings/lou-allongee.jpg"
+      "images/paintings/lou_edited.jpg",
+      "images/paintings/lou_visage.JPEG",
+      "images/paintings/lou_jambes.JPEG",
+      "images/paintings/lou_drape.JPEG"
     ],
-    "cover": "images/paintings/lou-allongee.jpg"
+    "cover": "images/paintings/lou_edited.jpg"
   },
   {
     "id": "sans-titre",
@@ -72,11 +89,16 @@
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
     "year": 2024,
-    "dimensions": "",
+    "dimensions": "110x 125 cm",
+    "price": "4500 €",
     "images": [
-      "images/paintings/sans-titre.jpg"
+      "images/paintings/Sleeping L_edited.jpg",
+      "images/paintings/IMG_5144.jpg",
+      "images/paintings/IMG_5142.jpg",
+      "images/paintings/IMG_5143.jpg",
+      "images/paintings.IMG_5141.jpg"
     ],
-    "cover": "images/paintings/sans-titre.jpg"
+    "cover": "images/paintings/Sleeping L_edited.jpg"
   },
   {
     "id": "thomas-r",
@@ -85,9 +107,13 @@
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
     "year": 2026,
-    "dimensions": "",
+    "dimensions": "160x 110 cm",
+    "price": "7 000 €",
     "images": [
-      "images/paintings/thomas-r.jpg"
+      "images/paintings/thomas-r.jpg",
+      "images/paintings/IMG_4939.jpg",
+      "images/paintings/IMG_5148.jpg",
+      "images/paintings/IMG_5149.jpg"
     ],
     "cover": "images/paintings/thomas-r.jpg"
   },
@@ -98,9 +124,14 @@
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
     "year": 2024,
-    "dimensions": "",
+    "dimensions": "86 x 95 cm",
+    "price": "4 500 €",
     "images": [
-      "images/paintings/interieur-nice.jpg"
+      "images/paintings/interieur-nice.jpg",
+      "images/paintings/lou et axel_visage lou.JPEG",
+      "images/paintings/lou et axel_visage axel.JPEG",
+      "images/paintings/lou et axel_main lou.JPEG",
+      "images/paintings/lou et axel_main axel.JPEG"
     ],
     "cover": "images/paintings/interieur-nice.jpg"
   },
@@ -111,9 +142,14 @@
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
     "year": 2026,
-    "dimensions": "",
+    "dimensions": "160x110 cm",
+    "price": "4000 €",
     "images": [
-      "images/paintings/gregoire-thomas.jpg"
+      "images/paintings/gregoire-thomas.jpg",
+      "images/paintings/IMG_4948",
+      "images/paintings/IMG_4951",
+      "images/paintings/IMG_4950",
+      "images/paintings/IMG_4949"
     ],
     "cover": "images/paintings/gregoire-thomas.jpg"
   },
@@ -124,9 +160,14 @@
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
     "year": 2024,
-    "dimensions": "",
+    "dimensions": "130 x 89 cm",
+    "price": "5000 €",
     "images": [
-      "images/paintings/tamazirt-smaili.jpg"
+      "images/paintings/tamazirt-smaili.jpg",
+      "images/paintings/IMG_5164",
+      "images/paintings/IMG_5170",
+      "images/paintings/IMG_5166",
+      "images/paintings/IMG_5171"
     ],
     "cover": "images/paintings/tamazirt-smaili.jpg"
   },
@@ -137,9 +178,15 @@
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
     "year": 2025,
-    "dimensions": "",
+    "dimensions": "195x130 cm",
+    "price": "9 000 €",
     "images": [
-      "images/paintings/elsa.jpg"
+      "images/paintings/elsa.jpg",
+      "images/paintings/IMG_5152",
+      "images/paintings/IMG_5155",
+      "images/paintings/IMG_5151",
+      "images/paintings/IMG_5159",
+      "images/paintings/IMG_5162"
     ],
     "cover": "images/paintings/elsa.jpg"
   }
