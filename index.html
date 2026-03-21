@@ -598,13 +598,24 @@
     .bio-text-col {
       position: sticky;
       top: calc(var(--nav-h) + 40px);
+      padding-left: 20px;
+      max-width: 420px;
+    }
+
+    .bio-layout {
+      display: grid;
+      grid-template-columns: 5fr 4fr;
+      gap: 72px;
+      align-items: start;
+      padding-top: 40px;
     }
 
     .bio-text-col p {
       font-size: 13px;
       line-height: 1.75;
       color: var(--grey-dark);
-      margin-bottom: 12px;
+      margin-bottom: 0px;
+      text-align: left;
     }
 
     .bio-text-col p:last-child {
@@ -1415,7 +1426,7 @@
 
 
       document.getElementById('footer-bottom').innerHTML = `
-    <span>© ${l.copyright_year} ${a.first_name} ${a.last_name}. ${t.all_rights}</span>
+    <span>© ${new Date().getFullYear()} ${a.first_name} ${a.last_name}. ${t.all_rights}</span>
     <span>${t.made_with}</span>`;
     }
 
@@ -1501,7 +1512,7 @@
 
     const FB_SITE = {
       contact: { email: "jonathan.saada@gmail.com", phone: "+33 (0)6 22 14 87 36", phone_href: "tel:+33622148736" },
-      legal: { siret: "000 000 000 00000", ape: "9003B", host_name: "À renseigner", host_address: "Adresse de l'hébergeur, pays", gdpr_email: "jonathan.saada@gmail.com", copyright_year: "2025" },
+      legal: { siret: "000 000 000 00000", ape: "9003B", host_name: "À renseigner", host_address: "Adresse de l'hébergeur, pays", gdpr_email: "jonathan.saada@gmail.com", copyright_year: "2026" },
     };
 
     boot();
