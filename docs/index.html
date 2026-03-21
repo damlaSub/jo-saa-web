@@ -5,12 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jonathan Saada</title>
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"> -->
-  <!-- <link
-    href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&family=Josefin+Sans:wght@100;300&display=swap"
-    rel="stylesheet"> -->
   <style>
     *,
     *::before,
@@ -20,16 +14,16 @@
       padding: 0;
     }
 
-
+    /* bg: #EFEEF0; */
     :root {
       --black: #0a0a0a;
       --white: #ffffff;
-      --grey-bg: #EFEEF0;
+      --grey-bg: #FAF9F7;
       --grey-mid: #9a9591;
       --grey-dark: #4a4846;
       /* --border: #e0ddd9; */
       --font: 'Brown Pro', sans-serif;
-      --nav-h: 68px;
+      --nav-h: 84px;
       --max-w: 1160px;
     }
 
@@ -110,8 +104,20 @@
     }
 
     .logo-svg {
-      height: 22px;
+      height: 45px;
       width: auto;
+      max-width: 70vw;
+      /* 70 pc of the screen */
+    }
+
+    .logo-text {
+      font-family: 'Brown Pro', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--black);
+      white-space: nowrap;
     }
 
     .logo-img {
@@ -249,7 +255,7 @@
 
     /* ── OEUVRES GRID ── */
     #view-oeuvres {
-      padding: 72px 40px 80px;
+      padding: 24px 40px 40px;
     }
 
     .oeuvres-inner {
@@ -259,7 +265,7 @@
 
     .paintings-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 28px;
     }
 
@@ -556,20 +562,12 @@
       margin: 0 auto;
     }
 
-    .view-eyebrow {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--grey-mid);
-      margin-bottom: 40px;
-    }
-
     .bio-layout {
       display: grid;
-      grid-template-columns: 5fr 4fr;
-      gap: 72px;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
       align-items: start;
+      padding-top: 40px;
     }
 
     .bio-photo {
@@ -598,28 +596,56 @@
     .bio-text-col {
       position: sticky;
       top: calc(var(--nav-h) + 40px);
-      padding-left: 20px;
-      max-width: 420px;
-    }
-
-    .bio-layout {
-      display: grid;
-      grid-template-columns: 5fr 4fr;
-      gap: 72px;
-      align-items: start;
-      padding-top: 40px;
     }
 
     .bio-text-col p {
       font-size: 13px;
       line-height: 1.75;
       color: var(--grey-dark);
-      margin-bottom: 0px;
+      margin-bottom: 12px;
       text-align: left;
     }
 
     .bio-text-col p:last-child {
       margin-bottom: 0;
+    }
+
+    /* Medium screens — text goes under, both full width */
+    @media (max-width: 860px) {
+      .bio-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .bio-photo {
+        aspect-ratio: 4 / 3;
+        /* wider crop so photo isn't too tall when stacked */
+      }
+
+      .bio-text-col {
+        position: static;
+        max-width: 100%;
+        padding-left: 0;
+      }
+    }
+
+    /* Small screens */
+    @media (max-width: 640px) {
+
+      .bio-photo {
+        aspect-ratio: 3 / 4;
+        /* back to portrait on mobile */
+      }
+
+      #view-oeuvres,
+      #view-detail,
+      #view-bio,
+      #view-contact,
+      #view-legal {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+      }
     }
 
     /* ── CONTACT ── */
@@ -756,88 +782,85 @@
     footer {
       background: var(--black);
       color: rgba(255, 255, 255, 0.38);
-      padding: 52px 40px 0;
+      padding: 32px 40px;
     }
 
-    .footer-inner {
+    .footer-all {
       max-width: var(--max-w);
       margin: 0 auto;
       display: flex;
-      justify-content: center;
-      /* center links */
-      padding-bottom: 48px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 11px;
     }
 
-    .footer-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.85);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .footer-brand p {
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-
-
-    .footer-links h4 {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 16px;
-      font-weight: 500;
+    .footer-copyright {
+      white-space: nowrap;
     }
 
     .footer-links ul {
       list-style: none;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-start;
-      /* ← left */
+      flex-direction: row;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     .footer-links a {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.5);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.45);
       cursor: pointer;
       transition: color 0.18s;
+      white-space: nowrap;
     }
 
     .footer-links a:hover {
       color: rgba(255, 255, 255, 0.85);
     }
 
+    .footer-madeby {
+      white-space: nowrap;
+    }
 
-    .footer-bottom {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 20px 0 28px;
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      gap: 16px;
+    /* Medium — can't fit all in one line: center everything in 3 rows */
+    @media (max-width: 860px) {
+      footer {
+        padding: 32px 40px;
+      }
+
+      .footer-all {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 14px;
+      }
+
+      .footer-links ul {
+        justify-content: center;
+        gap: 16px;
+      }
+    }
+
+    /* Small — links also stack vertically */
+    @media (max-width: 480px) {
+      footer {
+        padding: 28px 20px;
+      }
+
+      .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1000px) {
       .paintings-grid {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (max-width: 640px) {
-        .footer-links ul {
-          align-items: center;
-          /* ← center */
-          text-align: center;
-        }
       }
 
       .detail-layout {
@@ -849,24 +872,14 @@
         margin-top: 32px;
       }
 
-      .bio-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
       .bio-text-col {
         position: static;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr 1fr;
       }
     }
 
     @media (max-width: 640px) {
       :root {
         --nav-h: 60px;
-        --font: 'Brown Pro', sans-serif;
       }
 
       #view-oeuvres,
@@ -891,13 +904,18 @@
       }
 
       .paintings-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
       }
 
       .footer-inner {
         grid-template-columns: 1fr;
         gap: 32px;
+        justify-content: flex-start;
+      }
+
+      .footer-links ul {
+        align-items: flex-start;
       }
 
       .footer-bottom {
@@ -910,6 +928,7 @@
         padding: 44px 20px 0;
       }
     }
+
 
     /* ── TYPOGRAPHY SETTINGS ── */
 
@@ -936,9 +955,7 @@
     .view-title {
       font-size: clamp(28px, 4vw, 44px);
       font-weight: 300;
-      /* light weight = Piasa elegance */
       letter-spacing: -0.02em;
-      /* negative tracking on large text */
       line-height: 1.05;
     }
 
@@ -991,18 +1008,23 @@
 
   <header>
     <div class="header-inner">
-      <!-- Replace SVG with <img class="logo-img" src="images/logo.svg" alt="Jonathan Saada"> when ready -->
+      <!-- <div class="logo-wrap" onclick="navigate('oeuvres')" role="button" tabindex="0"
+        onkeydown="if(event.key==='Enter')navigate('oeuvres')" aria-label="Accueil">
+        <svg viewBox="0 0 900 120" width="450" height="60" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="85" font-family="Didot, Bodoni, 'Playfair Display', serif" font-size="80" letter-spacing="6"
+            fill="#182028">
+            JONATHAN SAADA
+          </text>
+        </svg>
+      </div> -->
       <div class="logo-wrap" onclick="navigate('oeuvres')" role="button" tabindex="0"
         onkeydown="if(event.key==='Enter')navigate('oeuvres')" aria-label="Accueil">
-        <span style="
-  font-family: 'Brown Pro', sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #0a0a0a;
-  white-space: nowrap;
-">Jonathan Saada</span>
+        <svg viewBox="0 0 900 80" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+          <text x="0" y="58" font-family="Didot, Bodoni, 'Playfair Display', serif" font-size="60" letter-spacing="6"
+            fill="#182028">
+            JONATHAN SAADA
+          </text>
+        </svg>
       </div>
       <nav class="desk" id="desk-nav"></nav>
       <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobile()">
@@ -1092,8 +1114,8 @@
   </div>
 
   <footer>
-    <div class="footer-inner">
-      <div class="footer-brand" id="footer-brand"></div>
+    <div class="footer-all">
+      <span class="footer-copyright" id="footer-copyright"></span>
       <div class="footer-links">
         <ul>
           <li><a onclick="navigate('cookies')" href="#cookies">Politique en matière de cookies</a></li>
@@ -1101,8 +1123,8 @@
           <li><a onclick="navigate('confidentialite')" href="#confidentialite">Politique de confidentialité</a></li>
         </ul>
       </div>
+      <span class="footer-madeby" id="footer-madeby"></span>
     </div>
-    <div class="footer-bottom" id="footer-bottom"></div>
   </footer>
 
   <script>
@@ -1419,15 +1441,11 @@
     /* ── FOOTER ── */
     function renderFooter() {
       const t = T();
-      const l = (site && site.legal) ? site.legal : FB_SITE.legal;
       const a = (bio && bio.artist) ? bio.artist : FB_BIO.artist;
 
-      document.getElementById('footer-brand').innerHTML = '';
-
-
-      document.getElementById('footer-bottom').innerHTML = `
-    <span>© ${new Date().getFullYear()} ${a.first_name} ${a.last_name}. ${t.all_rights}</span>
-    <span>${t.made_with}</span>`;
+      document.getElementById('footer-copyright').innerHTML =
+        `© ${new Date().getFullYear()} ${a.first_name} ${a.last_name}. ${t.all_rights}`;
+      document.getElementById('footer-madeby').innerHTML = t.made_with;
     }
 
     /* ── MOBILE ── */
