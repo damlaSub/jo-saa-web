@@ -1,0 +1,25 @@
+{
+  "artist": {
+    "first_name": "Jonathan",
+    "last_name": "Saada",
+    "profession_fr": "Peintre",
+    "profession_en": "Painter"
+  },
+  "photo": {
+    "src": "images/bio/bio.png",
+    "caption_fr": "Jonathan Saada dans son atelier",
+    "caption_en": "Jonathan Saada in his studio"
+  },
+  "paragraphs_fr": [
+    "Né en 1985 à Bourg-la-Reine, Jonathan Saada développe dès l'enfance une attirance profonde pour l'art. Cette vocation le conduit à intégrer l'ESAG Penninghen à Paris, où il étudie entre 2004 et 2007.",
+    "Il poursuit ensuite sa formation en Italie, à la Florence Academy of Art, où il reçoit un enseignement classique fondé sur une approche rigoureuse et traditionnelle de la peinture. En 2010, il en devient le premier diplômé français.",
+    "Fort de cet apprentissage exigeant, Jonathan Saada choisit de s'éloigner du cadre académique pour explorer une voie plus personnelle. Il revient en France et installe son atelier à Paris, où sa peinture gagne en profondeur et en liberté.",
+    "La peinture n'est plus alors une quête, mais un besoin vital, nourri quotidiennement par l'observation directe du réel. Refusant le recours au support photographique qui fige le réel, il travaille exclusivement d'après modèle vivant, saisissant la présence, l'énergie et la vérité de celles et ceux qui l'entourent — amis, proches, modèles — qui posent régulièrement dans son atelier."
+  ],
+  "paragraphs_en": [
+    "Born in 1985 in Bourg-la-Reine, Jonathan Saada developed a deep attraction to art from childhood. This calling led him to join the ESAG Penninghen school in Paris, where he studied between 2004 and 2007.",
+    "He then pursued his training in Italy, at the Florence Academy of Art, where he received a classical education grounded in a rigorous and traditional approach to painting. In 2010, he became its first French graduate.",
+    "Drawing on this demanding apprenticeship, Jonathan Saada chose to step away from the academic framework to explore a more personal path. He returned to France and set up his studio in Paris, where his painting gained in depth and freedom.",
+    "Painting was no longer a quest but a vital need, nourished daily by direct observation of reality. Refusing to use photography, which freezes life, he works exclusively from living models, capturing the presence, energy and truth of those around him — friends, family, models — who pose regularly in his studio."
+  ]
+}

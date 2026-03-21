@@ -1,0 +1,146 @@
+[
+  {
+    "id": "tama",
+    "name_fr": "Tama",
+    "name_en": "Tama",
+    "technique_fr": "Huile sur toile",
+    "technique_en": "Oil on canvas",
+    "year": 2024,
+    "dimensions": "",
+    "images": [
+      "images/paintings/tama.jpg",
+      "images/paintings/tama-detail.jpg"
+    ],
+    "cover": "images/paintings/tama.jpg"
+  },
+  {
+    "id": "maelle",
+    "name_fr": "Maëlle",
+    "name_en": "Maëlle",
+    "technique_fr": "Huile sur toile",
+    "technique_en": "Oil on canvas",
+    "year": 2026,
+    "dimensions": "",
+    "images": [
+      "images/paintings/maelle.jpg"
+    ],
+    "cover": "images/paintings/maelle.jpg"
+  },
+  {
+    "id": "circe-mythos-1",
+    "name_fr": "Circé (Mythos 1)",
+    "name_en": "Circé (Mythos 1)",
+    "technique_fr": "Huile sur toile",
+    "technique_en": "Oil on canvas",
+    "year": 2025,
+    "dimensions": "",
+    "images": [
+      "images/paintings/circe.jpg"
+    ],
+    "cover": "images/paintings/circe.jpg"
+  },
+  {
+    "id": "vinicius",
+    "name_fr": "Vinicius",
+    "name_en": "Vinicius",
+    "technique_fr": "Huile sur toile",
+    "technique_en": "Oil on canvas",
+    "year": 2024,
+    "dimensions": "",
+    "images": [
+      "images/paintings/vinicius.jpg"
+    ],
+    "cover": "images/paintings/vinicius.jpg"
+  },
+  {
+    "id": "lou-allongee",
+    "name_fr": "Lou allongée",
+    "name_en": "Lou allongée",
+    "technique_fr": "Huile sur bois",
+    "technique_en": "Oil on wood",
+    "year": 2023,
+    "dimensions": "",
+    "images": [
+      "images/paintings/lou-allongee.jpg"
+    ],
+    "cover": "images/paintings/lou-allongee.jpg"
+  },
+  {
+    "id": "sans-titre",
+    "name_fr": "Sans titre",
+    "name_en": "Untitled",
+    "technique_fr": "Huile sur toile",
+    "technique_en": "Oil on canvas",
+    "year": 2024,
+    "dimensions": "",
+    "images": [
+      "images/paintings/sans-titre.jpg"
+    ],
+    "cover": "images/paintings/sans-titre.jpg"
+  },
+  {
+    "id": "thomas-r",
+    "name_fr": "Thomas R",
+    "name_en": "Thomas R",
+    "technique_fr": "Huile sur toile",
+    "technique_en": "Oil on canvas",
+    "year": 2026,
+    "dimensions": "",
+    "images": [
+      "images/paintings/thomas-r.jpg"
+    ],
+    "cover": "images/paintings/thomas-r.jpg"
+  },
+  {
+    "id": "interieur-a-nice",
+    "name_fr": "Intérieur à Nice",
+    "name_en": "Interior in Nice",
+    "technique_fr": "Huile sur toile",
+    "technique_en": "Oil on canvas",
+    "year": 2024,
+    "dimensions": "",
+    "images": [
+      "images/paintings/interieur-nice.jpg"
+    ],
+    "cover": "images/paintings/interieur-nice.jpg"
+  },
+  {
+    "id": "gregoire-et-thomas",
+    "name_fr": "Grégoire et Thomas",
+    "name_en": "Grégoire et Thomas",
+    "technique_fr": "Huile sur toile",
+    "technique_en": "Oil on canvas",
+    "year": 2026,
+    "dimensions": "",
+    "images": [
+      "images/paintings/gregoire-thomas.jpg"
+    ],
+    "cover": "images/paintings/gregoire-thomas.jpg"
+  },
+  {
+    "id": "tamazirt-smaili",
+    "name_fr": "Tamazirt Smaili",
+    "name_en": "Tamazirt Smaili",
+    "technique_fr": "Huile sur toile",
+    "technique_en": "Oil on canvas",
+    "year": 2024,
+    "dimensions": "",
+    "images": [
+      "images/paintings/tamazirt-smaili.jpg"
+    ],
+    "cover": "images/paintings/tamazirt-smaili.jpg"
+  },
+  {
+    "id": "elsa",
+    "name_fr": "Elsa",
+    "name_en": "Elsa",
+    "technique_fr": "Huile sur toile",
+    "technique_en": "Oil on canvas",
+    "year": 2025,
+    "dimensions": "",
+    "images": [
+      "images/paintings/elsa.jpg"
+    ],
+    "cover": "images/paintings/elsa.jpg"
+  }
+]

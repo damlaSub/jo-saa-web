@@ -1,0 +1,19 @@
+{
+  "contact": {
+    "email": "jonathan.saada@gmail.com",
+    "phone": "+33 (0)6 22 14 87 36",
+    "phone_href": "tel:+33622148736"
+  },
+  "legal": {
+    "siret": "000 000 000 00000",
+    "ape": "9003B",
+    "host_name": "À renseigner",
+    "host_address": "Adresse de l'hébergeur, pays",
+    "gdpr_email": "jonathan.saada@gmail.com",
+    "copyright_year": "2025"
+  },
+  "logo": {
+    "src": "images/logo.svg",
+    "alt": "Jonathan Saada"
+  }
+}
