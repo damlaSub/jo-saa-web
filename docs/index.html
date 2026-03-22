@@ -20,6 +20,7 @@
       --grey-bg: #FAF9F7;
       --grey-mid: #9a9591;
       --grey-dark: #4a4846;
+      --border: transparent;
       --font: 'Brown Pro', sans-serif;
       --serif: Didot, Bodoni, 'Playfair Display', 'Times New Roman', serif;
       --nav-h: 100px;
@@ -44,6 +45,13 @@
       font-family: 'Brown Pro';
       src: url('fonts/BrownPro-Bold-OW29qoPv.ttf') format('truetype');
       font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Brown Pro';
+      src: url('fonts/BrownPro-Light-CLqcrCeR.ttf') format('truetype');
+      font-weight: 200;
       font-style: normal;
     }
 
@@ -588,7 +596,7 @@
     .bio-text-col p {
       font-family: var(--font);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 400;
       line-height: 1.85;
       color: var(--grey-dark);
       margin-bottom: 20px;
@@ -640,7 +648,7 @@
     .contact-value {
       font-family: var(--font);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 400;
       line-height: 1.85;
       color: var(--grey-dark);
       margin-bottom: 20px;
@@ -1412,7 +1420,7 @@
 
     const FB_BIO = {
       artist: { first_name: "Jonathan", last_name: "Saada", profession_fr: "Peintre", profession_en: "Painter" },
-      photo: { src: "images/bio/bio.jpg", caption_fr: "Jonathan Saada dans son atelier", caption_en: "Jonathan Saada in his studio" },
+      photo: { src: "images/bio/bio.webp", caption_fr: "Jonathan Saada dans son atelier", caption_en: "Jonathan Saada in his studio" },
       paragraphs_fr: [
         "Né en 1985 à Bourg-la-Reine, Jonathan Saada développe dès l'enfance une attirance profonde pour l'art. Cette vocation le conduit à intégrer l'ESAG Penninghen à Paris, où il étudie entre 2004 et 2007.",
         "Il poursuit ensuite sa formation en Italie, à la Florence Academy of Art, où il reçoit un enseignement classique fondé sur une approche rigoureuse et traditionnelle de la peinture. En 2010, il en devient le premier diplômé français.",
