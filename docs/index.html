@@ -103,6 +103,7 @@
       align-items: center;
       cursor: pointer;
       flex-shrink: 0;
+      margin-left: -3px;
     }
 
     .logo-svg {
@@ -915,12 +916,37 @@
     <div class="header-inner">
       <div class="logo-wrap" onclick="navigate('oeuvres')" role="button" tabindex="0"
         onkeydown="if(event.key==='Enter')navigate('oeuvres')" aria-label="Accueil">
-        <svg viewBox="0 0 1020 90" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
-          <text x="0" y="68" font-family="Didot, Bodoni, 'Playfair Display', serif" font-size="77" letter-spacing="5"
-            font-weight="500" fill="#182028" transform="scale(1.2,1)">
-            JONATHAN SAADA
+        <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            .main {
+              font-family: "Playfair Display", "Times New Roman", serif;
+              font-weight: 700;
+            }
+          </style>
+          <text x="" y="38" font-size="42" letter-spacing="-1.5" fill="#182028" class="main">
+            JONATHAN
+          </text>
+          <text x="0" y="78" font-size="42" letter-spacing="-1.5" fill="#182028" class="main">
+            SAADA
           </text>
         </svg>
+
+        <!--one line 
+        <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            .main {
+              font-family: "Playfair Display", "Times New Roman", serif;
+              font-weight: 700;
+            }
+          </style>
+          <text x="0" y="38" font-size="42" letter-spacing="-1.5" fill="#182028" class="main">
+            JONATHAN
+          </text>
+          <text x="0" y="78" font-size="42" letter-spacing="-1.5" fill="#182028" class="main">
+            SAADA
+          </text>
+        </svg> -->
+
       </div>
       <nav class="desk" id="desk-nav"></nav>
       <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobile()">
