@@ -75,12 +75,12 @@
     "dimensions": "130 × 89 cm",
     "price": "Vendu",
     "images": [
-      "images/paintings/lou_edited.webp",
+      "images/paintings/lou.webp",
       "images/paintings/lou_visage.webp",
       "images/paintings/lou_jambes.webp",
       "images/paintings/lou_drape.webp"
     ],
-    "cover": "images/paintings/lou_edited.webp"
+    "cover": "images/paintings/lou.webp"
   },
   {
     "id": "sans-titre",
