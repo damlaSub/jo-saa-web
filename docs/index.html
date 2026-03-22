@@ -70,6 +70,7 @@
       max-width: 100%;
     }
 
+
     /* ── HEADER ── */
     header {
       position: fixed;
@@ -229,42 +230,7 @@
       display: block;
     }
 
-    /* ── SHIMMER / BLUR-UP PLACEHOLDER ── */
-    @keyframes shimmer {
-      0% {
-        background-position: -600px 0;
-      }
 
-      100% {
-        background-position: 600px 0;
-      }
-    }
-
-    /* Shimmer on the container while image hasn't loaded */
-    .painting-thumb.is-loading,
-    .detail-main-wrap.is-loading,
-    .detail-thumb.is-loading {
-      background: linear-gradient(90deg,
-          #f0eeeb 25%,
-          #e8e5e1 50%,
-          #f0eeeb 75%);
-      background-size: 600px 100%;
-      animation: shimmer 1.4s ease-in-out infinite;
-    }
-
-    /* Images start invisible, fade in once loaded */
-    .painting-thumb img,
-    .detail-main-wrap img,
-    .detail-thumb img {
-      opacity: 0;
-      transition: opacity 0.4s ease, transform 0.5s ease;
-    }
-
-    .painting-thumb img.loaded,
-    .detail-main-wrap img.loaded,
-    .detail-thumb img.loaded {
-      opacity: 1;
-    }
 
     /* ── PAINTINGS GRID (Piasa style) ── */
     #view-oeuvres {
@@ -309,7 +275,7 @@
       padding: 8px;
     }
 
-    .painting-card:hover .painting-thumb img.loaded {
+    .painting-card:hover .painting-thumb img {
       transform: scale(1.04);
     }
 
@@ -442,12 +408,17 @@
       }
     }
 
+    /* When sliding, the animation handles opacity — override the base opacity:0 rule */
     .detail-main-wrap img.slide-right {
-      animation: slideFromRight 0.3s ease forwards;
+      animation: slideFromRight 0.35s ease forwards;
+      opacity: 1;
+      /* allow animation to control opacity */
     }
 
     .detail-main-wrap img.slide-left {
-      animation: slideFromLeft 0.3s ease forwards;
+      animation: slideFromLeft 0.35s ease forwards;
+      opacity: 1;
+      /* allow animation to control opacity */
     }
 
     .detail-thumbs {
@@ -937,8 +908,8 @@
       <div class="logo-wrap" onclick="navigate('oeuvres')" role="button" tabindex="0"
         onkeydown="if(event.key==='Enter')navigate('oeuvres')" aria-label="Accueil">
         <svg viewBox="0 0 1020 90" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
-          <text x="0" y="68" font-family="Didot, Bodoni, 'Playfair Display', serif" font-size="77" font-weight="500"
-            letter-spacing="6" fill="#182028" transform="scale(1.2,1)">
+          <text x="0" y="68" font-family="Didot, Bodoni, 'Playfair Display', serif" font-size="77" letter-spacing="5"
+            font-weight="500" fill="#182028" transform="scale(1.2,1)">
             JONATHAN SAADA
           </text>
         </svg>
@@ -1061,6 +1032,7 @@
     let currentView = 'oeuvres';
     let currentPaintingIdx = 0;
     let currentThumbIdx = 0;
+
 
     /* ── BOOT ── */
     async function boot() {
@@ -1193,13 +1165,13 @@
         const name = p['name_' + lang];
         const tech = p['technique_' + lang];
         const src = p.cover || (p.images && p.images[0]) || '';
+
         return `
           <div class="painting-card" onclick="navigate('detail',${i})"
                tabindex="0" role="button" aria-label="${name}"
                onkeydown="if(event.key==='Enter')navigate('detail',${i})">
             <div class="painting-thumb">
-              <img src="${src}" alt="${name}" loading="lazy" onerror="this.style.display='none'">
-            </div>
+  <img src="${src}" alt="${name}" loading="lazy" onerror="this.style.display='none'">   </div>        
             <p class="painting-name">${name}</p>
             <p class="painting-meta">${tech}</p>
             ${p.price ? `<div class="painting-price-block">
@@ -1208,7 +1180,6 @@
             </div>` : ''}
           </div>`;
       }).join('');
-      shimmerAll();
     }
 
     /* ── DETAIL ── */
@@ -1248,16 +1219,17 @@
 
       const thumbsEl = document.getElementById('detail-thumbs');
       thumbsEl.innerHTML = images.length > 1
-        ? images.map((src, i) =>
-          `<div class="detail-thumb ${i === currentThumbIdx ? 'active' : ''}" onclick="selectThumb(${i})">
-            <img src="${src}" alt="${name} ${i + 1}" loading="lazy" onerror="this.style.display='none'">
-          </div>`).join('')
+        ? images.map((src, i) => {
+
+          return `<div class="detail-thumb ${i === currentThumbIdx ? 'active' : ''}" onclick="selectThumb(${i})">
+              <img src="${src}" alt="${name} ${i + 1}" loading="lazy" onerror="this.style.display='none'">
+            </div>`;
+        }).join('')
         : '';
 
       document.getElementById('btn-prev').disabled = currentPaintingIdx === 0;
       document.getElementById('btn-next').disabled = currentPaintingIdx === paintings.length - 1;
 
-      shimmerAll();
     }
 
     function selectThumb(i) {
@@ -1265,11 +1237,10 @@
       currentThumbIdx = i;
       const images = paintings[currentPaintingIdx].images || [paintings[currentPaintingIdx].cover];
       const mainImg = document.getElementById('detail-main-img');
-      mainImg.classList.remove('slide-right', 'slide-left', 'loaded');
+      mainImg.classList.remove('slide-right', 'slide-left');
       void mainImg.offsetWidth;
       mainImg.src = images[i];
       mainImg.classList.add(direction === 'right' ? 'slide-right' : 'slide-left');
-      attachShimmer(mainImg);
       document.querySelectorAll('.detail-thumb').forEach((el, idx) => {
         el.classList.toggle('active', idx === i);
       });
@@ -1426,17 +1397,17 @@
 
     /* ── FALLBACK DATA ── */
     const FB_PAINTINGS = [
-      { id: "tama", name_fr: "Tama", name_en: "Tama", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "46 × 38 cm", price: "2 000 €", images: ["images/paintings/tama.png", "images/paintings/tama-detail.jpg"], cover: "images/paintings/tama.png" },
-      { id: "maelle", name_fr: "Maëlle", name_en: "Maëlle", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/maelle.jpg", "images/paintings/IMG_5129.jpg", "images/paintings/IMG_5126.jpg", "images/paintings/IMG_5125.jpg", "images/paintings/IMG_5127.jpg"], cover: "images/paintings/maelle.jpg" },
-      { id: "circe-mythos-1", name_fr: "Circé (Mythos 1)", name_en: "Circé (Mythos 1)", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/circe.jpg", "images/paintings/IMG_5124.jpg", "images/paintings/IMG_5118.jpg", "images/paintings/IMG_5123.jpg", "images/paintings/IMG_5122.jpg"], cover: "images/paintings/circe.jpg" },
-      { id: "vinicius", name_fr: "Vinicius", name_en: "Vinicius", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "61 × 46 cm", price: "3 000 €", images: ["images/paintings/IMG_8763_edited.jpg", "images/paintings/vinicius_visage.JPEG"], cover: "images/paintings/IMG_8763_edited.jpg" },
-      { id: "lou-allongee", name_fr: "Lou allongée", name_en: "Lou allongée", technique_fr: "Huile sur bois", technique_en: "Oil on wood", year: 2023, dimensions: "130 × 89 cm", price: "Sold", images: ["images/paintings/lou_edited.jpg", "images/paintings/lou_visage.JPEG", "images/paintings/lou_jambes.JPEG", "images/paintings/lou_drape.JPEG"], cover: "images/paintings/lou_edited.jpg" },
-      { id: "sans-titre", name_fr: "Sans titre", name_en: "Untitled", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "110 × 125 cm", price: "4 500 €", images: ["images/paintings/Sleeping L_edited.jpg", "images/paintings/IMG_5144.jpg", "images/paintings/IMG_5142.jpg", "images/paintings/IMG_5143.jpg", "images/paintings/IMG_5141.jpg"], cover: "images/paintings/Sleeping L_edited.jpg" },
-      { id: "thomas-r", name_fr: "Thomas R", name_en: "Thomas R", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "160 × 110 cm", price: "7 000 €", images: ["images/paintings/thomas-r.jpg", "images/paintings/IMG_4939.jpg", "images/paintings/IMG_5148.jpg", "images/paintings/IMG_5149.jpg"], cover: "images/paintings/thomas-r.jpg" },
-      { id: "interieur-a-nice", name_fr: "Intérieur à Nice", name_en: "Interior in Nice", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "86 × 95 cm", price: "4 500 €", images: ["images/paintings/interieur-nice.jpg", "images/paintings/lou et axel_visage lou.JPEG", "images/paintings/lou et axel_visage axel.JPEG", "images/paintings/lou et axel_main lou.JPEG", "images/paintings/lou et axel_main axel.JPEG"], cover: "images/paintings/interieur-nice.jpg" },
-      { id: "gregoire-et-thomas", name_fr: "Grégoire et Thomas", name_en: "Grégoire et Thomas", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "160 × 110 cm", price: "4 000 €", images: ["images/paintings/gregoire-thomas.jpg", "images/paintings/IMG_4948.jpg", "images/paintings/IMG_4951.jpg", "images/paintings/IMG_4950.jpg", "images/paintings/IMG_4949.jpg"], cover: "images/paintings/gregoire-thomas.jpg" },
-      { id: "tamazirt-smaili", name_fr: "Tamazirt Smaili", name_en: "Tamazirt Smaili", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "130 × 89 cm", price: "5 000 €", images: ["images/paintings/tamazirt-smaili.jpg", "images/paintings/IMG_5164.jpg", "images/paintings/IMG_5170.jpg", "images/paintings/IMG_5166.jpg", "images/paintings/IMG_5171.jpg"], cover: "images/paintings/tamazirt-smaili.jpg" },
-      { id: "elsa", name_fr: "Elsa", name_en: "Elsa", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/elsa.jpg", "images/paintings/IMG_5152.jpg", "images/paintings/IMG_5155.jpg", "images/paintings/IMG_5151.jpg", "images/paintings/IMG_5159.jpg", "images/paintings/IMG_5162.jpg"], cover: "images/paintings/elsa.jpg" },
+      { id: "tama", name_fr: "Tama", name_en: "Tama", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "46 × 38 cm", price: "2 000 €", images: ["images/paintings/tama.webp", "images/paintings/tama-detail.webp"], cover: "images/paintings/tama.webp" },
+      { id: "maelle", name_fr: "Maëlle", name_en: "Maëlle", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/maelle.webp", "images/paintings/IMG_5129.webp", "images/paintings/IMG_5126.webp", "images/paintings/IMG_5125.webp", "images/paintings/IMG_5127.webp"], cover: "images/paintings/maelle.webp" },
+      { id: "circe-mythos-1", name_fr: "Circé (Mythos 1)", name_en: "Circé (Mythos 1)", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/circe.webp", "images/paintings/IMG_5124.webp", "images/paintings/IMG_5118.webp", "images/paintings/IMG_5123.webp", "images/paintings/IMG_5122.webp"], cover: "images/paintings/circe.webp" },
+      { id: "vinicius", name_fr: "Vinicius", name_en: "Vinicius", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "61 × 46 cm", price: "3 000 €", images: ["images/paintings/IMG_8763_edited.webp", "images/paintings/vinicius_visage.webp"], cover: "images/paintings/IMG_8763_edited.webp" },
+      { id: "lou-allongee", name_fr: "Lou allongée", name_en: "Lou allongée", technique_fr: "Huile sur bois", technique_en: "Oil on wood", year: 2023, dimensions: "130 × 89 cm", price: "Vendu", images: ["images/paintings/lou_edited.webp", "images/paintings/lou_visage.webp", "images/paintings/lou_jambes.webp", "images/paintings/lou_drape.webp"], cover: "images/paintings/lou_edited.webp" },
+      { id: "sans-titre", name_fr: "Sans titre", name_en: "Untitled", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "110 × 125 cm", price: "4 500 €", images: ["images/paintings/IMG_4444.webp", "images/paintings/IMG_5144.webp", "images/paintings/IMG_5142.webp", "images/paintings/IMG_5143.webp", "images/paintings/IMG_5141.webp"], cover: "images/paintings/IMG_4444.webp" },
+      { id: "thomas-r", name_fr: "Thomas R", name_en: "Thomas R", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "160 × 110 cm", price: "7 000 €", images: ["images/paintings/thomas-r.webp", "images/paintings/IMG_4939.webp", "images/paintings/IMG_5148.webp", "images/paintings/IMG_5149.webp"], cover: "images/paintings/thomas-r.webp" },
+      { id: "interieur-a-nice", name_fr: "Intérieur à Nice", name_en: "Interior in Nice", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "86 × 95 cm", price: "4 500 €", images: ["images/paintings/interieur-nice.webp", "images/paintings/lou-et-axel_visage-lou", "images/paintings/lou-et-axel_visage axel.webp", "images/paintings/lou-et-axel_main-lou.webp", "images/paintings/lou-et-axel_main-axel.webp"], cover: "images/paintings/interieur-nice.webp" },
+      { id: "gregoire-et-thomas", name_fr: "Grégoire et Thomas", name_en: "Grégoire et Thomas", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "160 × 110 cm", price: "4 000 €", images: ["images/paintings/gregoire-thomas.webp", "images/paintings/IMG_4948.webp", "images/paintings/IMG_4951.webp", "images/paintings/IMG_4950.webp", "images/paintings/IMG_4949.webp"], cover: "images/paintings/gregoire-thomas.webp" },
+      { id: "tamazirt-smaili", name_fr: "Tamazirt Smaili", name_en: "Tamazirt Smaili", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "130 × 89 cm", price: "5 000 €", images: ["images/paintings/tamazirt-smaili.webp", "images/paintings/IMG_5164.webp", "images/paintings/IMG_5170.webp", "images/paintings/IMG_5166.webp", "images/paintings/IMG_5171.webp"], cover: "images/paintings/tamazirt-smaili.webp" },
+      { id: "elsa", name_fr: "Elsa", name_en: "Elsa", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/elsa.webp", "images/paintings/IMG_5152.webp", "images/paintings/IMG_5155.webp", "images/paintings/IMG_5151.webp", "images/paintings/IMG_5159.webp", "images/paintings/IMG_5162.webp"], cover: "images/paintings/elsa.webp" },
     ];
 
     const FB_BIO = {
@@ -1460,44 +1431,6 @@
       contact: { email: "jonathan.saada@gmail.com", phone: "+33 (0)6 22 14 87 36", phone_href: "tel:+33622148736" },
       legal: { siret: "000 000 000 00000", ape: "9003B", host_name: "À renseigner", host_address: "Adresse de l'hébergeur, pays", gdpr_email: "jonathan.saada@gmail.com", copyright_year: "2026" },
     };
-
-    /* ── SHIMMER HELPER ── */
-    function attachShimmer(img) {
-      if (!img) return;
-      const wrap = img.closest('.painting-thumb, .detail-main-wrap, .detail-thumb');
-      if (!wrap) return;
-
-      // Start shimmer
-      wrap.classList.add('is-loading');
-
-      function onLoad() {
-        wrap.classList.remove('is-loading');
-        img.classList.add('loaded');
-        img.removeEventListener('load', onLoad);
-        img.removeEventListener('error', onError);
-      }
-      function onError() {
-        wrap.classList.remove('is-loading');
-        img.classList.add('loaded'); // show even if broken
-        img.removeEventListener('load', onLoad);
-        img.removeEventListener('error', onError);
-      }
-
-      // Already cached and complete
-      if (img.complete && img.naturalWidth > 0) {
-        onLoad();
-      } else {
-        img.addEventListener('load', onLoad);
-        img.addEventListener('error', onError);
-      }
-    }
-
-    // Observe DOM for new images (grid + detail thumbs rendered by JS)
-    function shimmerAll() {
-      document.querySelectorAll(
-        '.painting-thumb img, .detail-main-wrap img, .detail-thumb img'
-      ).forEach(attachShimmer);
-    }
 
     boot();
   </script>

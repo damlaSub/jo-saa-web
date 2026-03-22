@@ -9,10 +9,10 @@
     "dimensions": "46 × 38 cm",
     "price": "2 000 €",
     "images": [
-      "images/paintings/tama.png",
-      "images/paintings/tama-detail.jpg"
+      "images/paintings/tama.webp",
+      "images/paintings/tama-detail.webp"
     ],
-    "cover": "images/paintings/tama.png"
+    "cover": "images/paintings/tama.webp"
   },
   {
     "id": "maelle",
@@ -24,13 +24,13 @@
     "dimensions": "195 × 130 cm",
     "price": "9 000 €",
     "images": [
-      "images/paintings/maelle.jpg",
-      "images/paintings/IMG_5129.jpg",
-      "images/paintings/IMG_5126.jpg",
-      "images/paintings/IMG_5125.jpg",
-      "images/paintings/IMG_5127.jpg"
+      "images/paintings/maelle.webp",
+      "images/paintings/IMG_5129.webp",
+      "images/paintings/IMG_5126.webp",
+      "images/paintings/IMG_5125.webp",
+      "images/paintings/IMG_5127.webp"
     ],
-    "cover": "images/paintings/maelle.jpg"
+    "cover": "images/paintings/maelle.webp"
   },
   {
     "id": "circe-mythos-1",
@@ -42,13 +42,13 @@
     "dimensions": "195 × 130 cm",
     "price": "9 000 €",
     "images": [
-      "images/paintings/circe.jpg",
-      "images/paintings/IMG_5124.jpg",
-      "images/paintings/IMG_5118.jpg",
-      "images/paintings/IMG_5123.jpg",
-      "images/paintings/IMG_5122.jpg"
+      "images/paintings/circe.webp",
+      "images/paintings/IMG_5124.webp",
+      "images/paintings/IMG_5118.webp",
+      "images/paintings/IMG_5123.webp",
+      "images/paintings/IMG_5122.webp"
     ],
-    "cover": "images/paintings/circe.jpg"
+    "cover": "images/paintings/circe.webp"
   },
   {
     "id": "vinicius",
@@ -60,10 +60,10 @@
     "dimensions": "61 × 46 cm",
     "price": "3 000 €",
     "images": [
-      "images/paintings/IMG_8763_edited.jpg",
-      "images/paintings/vinicius_visage.JPEG"
+      "images/paintings/IMG_8763_edited.webp",
+      "images/paintings/vinicius_visage.webp"
     ],
-    "cover": "images/paintings/IMG_8763_edited.jpg"
+    "cover": "images/paintings/IMG_8763_edited.webp"
   },
   {
     "id": "lou-allongee",
@@ -75,12 +75,12 @@
     "dimensions": "130 × 89 cm",
     "price": "Vendu",
     "images": [
-      "images/paintings/lou_edited.jpg",
-      "images/paintings/lou_visage.JPEG",
-      "images/paintings/lou_jambes.JPEG",
-      "images/paintings/lou_drape.JPEG"
+      "images/paintings/lou_edited.webp",
+      "images/paintings/lou_visage.webp",
+      "images/paintings/lou_jambes.webp",
+      "images/paintings/lou_drape.webp"
     ],
-    "cover": "images/paintings/lou_edited.jpg"
+    "cover": "images/paintings/lou_edited.webp"
   },
   {
     "id": "sans-titre",
@@ -89,16 +89,16 @@
     "technique_fr": "Huile sur toile",
     "technique_en": "Oil on canvas",
     "year": 2024,
-    "dimensions": "110x 125 cm",
-    "price": "4500 €",
+    "dimensions": "110 x 125 cm",
+    "price": "4 500 €",
     "images": [
-      "images/paintings/Sleeping L_edited.jpg",
-      "images/paintings/IMG_5144.jpg",
-      "images/paintings/IMG_5142.jpg",
-      "images/paintings/IMG_5143.jpg",
-      "images/paintings.IMG_5141.jpg"
+      "images/paintings/IMG_4444.webp",
+      "images/paintings/IMG_5144.webp",
+      "images/paintings/IMG_5142.webp",
+      "images/paintings/IMG_5143.webp",
+      "images/paintings/IMG_5141.webp"
     ],
-    "cover": "images/paintings/Sleeping L_edited.jpg"
+    "cover": "images/paintings/IMG_4444.webp"
   },
   {
     "id": "thomas-r",
@@ -110,12 +110,12 @@
     "dimensions": "160x 110 cm",
     "price": "7 000 €",
     "images": [
-      "images/paintings/thomas-r.jpg",
-      "images/paintings/IMG_4939.jpg",
-      "images/paintings/IMG_5148.jpg",
-      "images/paintings/IMG_5149.jpg"
+      "images/paintings/thomas-r.webp",
+      "images/paintings/IMG_4939.webp",
+      "images/paintings/IMG_5148.webp",
+      "images/paintings/IMG_5149.webp"
     ],
-    "cover": "images/paintings/thomas-r.jpg"
+    "cover": "images/paintings/thomas-r.webp"
   },
   {
     "id": "interieur-a-nice",
@@ -127,13 +127,13 @@
     "dimensions": "86 x 95 cm",
     "price": "4 500 €",
     "images": [
-      "images/paintings/interieur-nice.jpg",
-      "images/paintings/lou et axel_visage lou.JPEG",
-      "images/paintings/lou et axel_visage axel.JPEG",
-      "images/paintings/lou et axel_main lou.JPEG",
-      "images/paintings/lou et axel_main axel.JPEG"
+      "images/paintings/interieur-nice.webp",
+      "images/paintings/lou-et-axel_visage-lou.webp",
+      "images/paintings/lou-et-axel_visage axel.webp",
+      "images/paintings/lou-et-axel_main-lou.webp",
+      "images/paintings/lou-et-axel_main-axel.webp"
     ],
-    "cover": "images/paintings/interieur-nice.jpg"
+    "cover": "images/paintings/interieur-nice.webp"
   },
   {
     "id": "gregoire-et-thomas",
@@ -143,15 +143,15 @@
     "technique_en": "Oil on canvas",
     "year": 2026,
     "dimensions": "160x110 cm",
-    "price": "4000 €",
+    "price": "4 000 €",
     "images": [
-      "images/paintings/gregoire-thomas.jpg",
-      "images/paintings/IMG_4948",
-      "images/paintings/IMG_4951",
-      "images/paintings/IMG_4950",
-      "images/paintings/IMG_4949"
+      "images/paintings/gregoire-thomas.webp",
+      "images/paintings/IMG_4948.webp",
+      "images/paintings/IMG_4951.webp",
+      "images/paintings/IMG_4950.webp",
+      "images/paintings/IMG_4949.webp"
     ],
-    "cover": "images/paintings/gregoire-thomas.jpg"
+    "cover": "images/paintings/gregoire-thomas.webp"
   },
   {
     "id": "tamazirt-smaili",
@@ -161,15 +161,15 @@
     "technique_en": "Oil on canvas",
     "year": 2024,
     "dimensions": "130 x 89 cm",
-    "price": "5000 €",
+    "price": "5 000 €",
     "images": [
-      "images/paintings/tamazirt-smaili.jpg",
-      "images/paintings/IMG_5164",
-      "images/paintings/IMG_5170",
-      "images/paintings/IMG_5166",
-      "images/paintings/IMG_5171"
+      "images/paintings/tamazirt-smaili.webp",
+      "images/paintings/IMG_5164.webp",
+      "images/paintings/IMG_5170.webp",
+      "images/paintings/IMG_5166.webp",
+      "images/paintings/IMG_5171.webp"
     ],
-    "cover": "images/paintings/tamazirt-smaili.jpg"
+    "cover": "images/paintings/tamazirt-smaili.webp"
   },
   {
     "id": "elsa",
@@ -181,13 +181,13 @@
     "dimensions": "195x130 cm",
     "price": "9 000 €",
     "images": [
-      "images/paintings/elsa.jpg",
-      "images/paintings/IMG_5152",
-      "images/paintings/IMG_5155",
-      "images/paintings/IMG_5151",
-      "images/paintings/IMG_5159",
-      "images/paintings/IMG_5162"
+      "images/paintings/elsa.webp",
+      "images/paintings/IMG_5152.webp",
+      "images/paintings/IMG_5155.webp",
+      "images/paintings/IMG_5151.webp",
+      "images/paintings/IMG_5159.webp",
+      "images/paintings/IMG_5162.webp"
     ],
-    "cover": "images/paintings/elsa.jpg"
+    "cover": "images/paintings/elsa.webp"
   }
 ]
