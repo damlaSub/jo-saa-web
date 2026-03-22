@@ -14,15 +14,15 @@
       padding: 0;
     }
 
-    /* bg: #EFEEF0; */
     :root {
       --black: #0a0a0a;
       --white: #ffffff;
       --grey-bg: #FAF9F7;
       --grey-mid: #9a9591;
       --grey-dark: #4a4846;
-      /* --border: #e0ddd9; */
+      --border: #e8e5e1;
       --font: 'Brown Pro', sans-serif;
+      --serif: Didot, Bodoni, 'Playfair Display', 'Times New Roman', serif;
       --nav-h: 84px;
       --max-w: 1160px;
     }
@@ -52,18 +52,13 @@
       scroll-behavior: smooth;
     }
 
-
-    h1,
-    h2 {
-      font-weight: 700;
-      /* Bold */
-    }
-
-    .detail-painting-name {
-      font-size: clamp(20px, 2.5vw, 28px);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 12px;
+    body {
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--black);
+      background: var(--white);
     }
 
     a {
@@ -107,23 +102,6 @@
       height: 45px;
       width: auto;
       max-width: 70vw;
-      /* 70 pc of the screen */
-    }
-
-    .logo-text {
-      font-family: 'Brown Pro', sans-serif;
-      font-weight: 300;
-      font-size: 13px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--black);
-      white-space: nowrap;
-    }
-
-    .logo-img {
-      height: 40px;
-      width: auto;
-      display: block;
     }
 
     nav.desk {
@@ -134,8 +112,8 @@
 
     .nav-link {
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
+      font-weight: 400;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       position: relative;
       padding-bottom: 2px;
@@ -253,9 +231,9 @@
       display: block;
     }
 
-    /* ── OEUVRES GRID ── */
+    /* ── PAINTINGS GRID (Piasa style) ── */
     #view-oeuvres {
-      padding: 24px 40px 40px;
+      padding: 32px 40px 60px;
     }
 
     .oeuvres-inner {
@@ -263,61 +241,86 @@
       margin: 0 auto;
     }
 
+    /*
+      Piasa uses 4 columns on large screens, 2 on mobile.
+      Jonathan has fewer columns — using 4 on desktop, 2 on small screens.
+    */
     .paintings-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
+      gap: 40px 20px;
     }
 
     .painting-card {
       cursor: pointer;
+      display: block;
     }
 
+    /* Piasa image: portrait 2:3 ratio, white bg, object-contain so painting is never cropped */
     .painting-thumb {
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 2 / 3;
       background: var(--grey-bg);
+      overflow: hidden;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      position: relative;
     }
 
     .painting-thumb img {
-      max-width: 88%;
-      max-height: 88%;
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+      /* Piasa: painting shown in full, never cropped */
+      padding: 12px;
+      /* small breathing room like Piasa cards */
       transition: transform 0.5s ease;
-      position: relative;
-      z-index: 1;
     }
 
     .painting-card:hover .painting-thumb img {
       transform: scale(1.04);
     }
 
-    .thumb-icon {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.18;
-      z-index: 0;
-    }
-
+    /* Piasa-style lot number */
+    /* Piasa: painting name — bold serif, with top space from image */
     .painting-name {
-      font-size: 19px;
-      font-weight: 400;
-      margin: 12px 0 2px;
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--black);
+      margin-top: 14px;
+      margin-bottom: 3px;
     }
 
+    /* Piasa: object/technique line is regular weight, same size */
     .painting-meta {
-      font-size: 12px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--grey-dark);
+      line-height: 1.4;
+    }
+
+    /* Piasa: "Estimation" label + price block */
+    .painting-price-block {
+      margin-top: 8px;
+    }
+
+    .painting-price-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--grey-mid);
-      letter-spacing: 0.04em;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .painting-price-value {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--black);
     }
 
     /* ── PAINTING DETAIL ── */
@@ -335,8 +338,8 @@
       align-items: center;
       gap: 8px;
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
+      font-weight: 400;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--grey-mid);
       cursor: pointer;
@@ -351,63 +354,44 @@
       color: var(--black);
     }
 
-    .back-link svg {
-      transition: transform 0.2s;
-    }
-
     .back-link:hover svg {
       transform: translateX(-3px);
     }
 
+    .back-link svg {
+      transition: transform 0.2s;
+    }
+
     .detail-layout {
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-template-columns: 1fr 340px;
       gap: 60px;
       align-items: start;
     }
 
+    /* Main image: portrait ratio like Piasa, contain so painting is never cropped */
     .detail-main-wrap {
       background: var(--grey-bg);
       display: flex;
       align-items: center;
       justify-content: center;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 2 / 3;
       overflow: hidden;
       position: relative;
     }
 
     .detail-main-wrap img {
-      max-width: 90%;
-      max-height: 90%;
+      max-width: 92%;
+      max-height: 92%;
       width: auto;
       height: auto;
       object-fit: contain;
     }
 
-    .detail-meta {
-      margin-top: 8px;
-    }
-
-    .detail-meta-line {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--grey-dark);
-      line-height: 1.9;
-    }
-
-    /* .detail-meta-name {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--black);
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-    } */
-
     @keyframes slideFromRight {
       from {
         opacity: 0;
-        transform: translateX(40px);
+        transform: translateX(30px);
       }
 
       to {
@@ -419,7 +403,7 @@
     @keyframes slideFromLeft {
       from {
         opacity: 0;
-        transform: translateX(-40px);
+        transform: translateX(-30px);
       }
 
       to {
@@ -429,22 +413,23 @@
     }
 
     .detail-main-wrap img.slide-right {
-      animation: slideFromRight 0.35s ease forwards;
+      animation: slideFromRight 0.3s ease forwards;
     }
 
     .detail-main-wrap img.slide-left {
-      animation: slideFromLeft 0.35s ease forwards;
+      animation: slideFromLeft 0.3s ease forwards;
     }
 
     .detail-thumbs {
       display: flex;
-      gap: 10px;
-      margin-top: 12px;
+      gap: 8px;
+      margin-top: 10px;
     }
 
     .detail-thumb {
-      width: 72px;
-      height: 90px;
+      width: 64px;
+      height: 80px;
+      /* 2:3 portrait thumbs like Piasa */
       background: var(--grey-bg);
       display: flex;
       align-items: center;
@@ -472,58 +457,57 @@
       object-fit: contain;
     }
 
+    /* Right info column */
     .detail-info {
       position: sticky;
       top: calc(var(--nav-h) + 32px);
     }
 
+    /* Piasa detail: large serif h1 for painting name */
     .detail-painting-name {
-      font-size: clamp(30px, 4vw, 48px);
+      font-family: var(--serif);
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: var(--black);
+    }
+
+    /* Piasa detail: all info as plain running lines — no label/value rows */
+    .detail-info-lines {
+      font-family: var(--font);
+      font-size: 14px;
       font-weight: 300;
-      line-height: 1.1;
+      color: var(--grey-dark);
+      line-height: 1.9;
       margin-bottom: 24px;
     }
 
-    .detail-meta {
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-    }
-
-    .detail-meta-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .detail-meta-label {
+    /* Piasa: "Estimation" label above price */
+    .detail-estimation-label {
       font-size: 10px;
-      letter-spacing: 0.16em;
+      font-weight: 500;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--grey-mid);
+      display: block;
+      margin-bottom: 4px;
+      margin-top: 4px;
     }
 
-    .detail-meta-value {
-      font-size: 16px;
-      font-weight: 300;
-      text-align: right;
-    }
-
-    .detail-meta-row.price-row .detail-meta-label {
+    .detail-estimation-value {
+      font-size: 18px;
+      font-weight: 400;
       color: var(--black);
-      font-weight: 500;
+      display: block;
     }
 
-    .detail-meta-row.price-row .detail-meta-value {
-      font-weight: 500;
-    }
-
+    /* Prev/next navigation */
     .detail-nav {
       display: flex;
       justify-content: space-between;
-      margin-top: 36px;
-      padding-top: 24px;
+      margin-top: 32px;
+      padding-top: 20px;
       border-top: 1px solid var(--border);
     }
 
@@ -532,8 +516,8 @@
       border: none;
       font-family: var(--font);
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+      font-weight: 400;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--grey-mid);
       cursor: pointer;
@@ -554,7 +538,7 @@
 
     /* ── BIOGRAPHY ── */
     #view-bio {
-      padding: 72px 40px 80px;
+      padding: 64px 40px 80px;
     }
 
     .bio-inner {
@@ -562,17 +546,37 @@
       margin: 0 auto;
     }
 
+    /* Section eyebrow like Piasa: tiny uppercase label above title */
+    .view-eyebrow {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--grey-mid);
+      margin-bottom: 16px;
+    }
+
+    /* Bio section title — serif bold like Piasa h1 */
+    .bio-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 48px;
+    }
+
     .bio-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: start;
-      padding-top: 40px;
     }
 
     .bio-photo {
       width: 100%;
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 2 / 3;
+      /* portrait 2:3 — consistent with grid cards */
       overflow: hidden;
       background: var(--grey-bg);
       position: relative;
@@ -598,54 +602,18 @@
       top: calc(var(--nav-h) + 40px);
     }
 
+    /* Piasa bio text: clean, readable, grey-dark, generous line-height */
     .bio-text-col p {
-      font-size: 13px;
-      line-height: 1.75;
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
       color: var(--grey-dark);
-      margin-bottom: 12px;
-      text-align: left;
+      margin-bottom: 20px;
     }
 
     .bio-text-col p:last-child {
       margin-bottom: 0;
-    }
-
-    /* Medium screens — text goes under, both full width */
-    @media (max-width: 860px) {
-      .bio-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .bio-photo {
-        aspect-ratio: 4 / 3;
-        /* wider crop so photo isn't too tall when stacked */
-      }
-
-      .bio-text-col {
-        position: static;
-        max-width: 100%;
-        padding-left: 0;
-      }
-    }
-
-    /* Small screens */
-    @media (max-width: 640px) {
-
-      .bio-photo {
-        aspect-ratio: 3 / 4;
-        /* back to portrait on mobile */
-      }
-
-      #view-oeuvres,
-      #view-detail,
-      #view-bio,
-      #view-contact,
-      #view-legal {
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 20px;
-      }
     }
 
     /* ── CONTACT ── */
@@ -658,50 +626,50 @@
       margin: 0 auto;
     }
 
-    .contact-block {
-      max-width: 560px;
-    }
-
-
-
-    #view-contact {
-      padding: 72px 40px 80px;
-    }
-
-    .contact-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
     .contact-title {
-      font-size: 16px;
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 36px;
+    }
+
+    .contact-block {
+      max-width: 480px;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--grey-mid);
+      font-weight: 400;
+    }
+
+    .contact-value {
+      font-size: 15px;
       font-weight: 300;
-      color: var(--grey-dark);
-      line-height: 2;
+      color: var(--black);
     }
 
-    .contact-line {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--grey-dark);
-      line-height: 2;
+    .contact-value a {
+      color: var(--black);
     }
 
-    .contact-line a {
-      color: var(--grey-dark);
-    }
-
-    .contact-line a:hover {
+    .contact-value a:hover {
       text-decoration: underline;
-      text-underline-offset: 4px;
+      text-underline-offset: 3px;
     }
-
-    .contact-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      color: var(--grey-dark);
-    }
-
 
     /* ── LEGAL PAGES ── */
     #view-legal {
@@ -718,8 +686,8 @@
       align-items: center;
       gap: 8px;
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
+      font-weight: 400;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--grey-mid);
       cursor: pointer;
@@ -734,28 +702,35 @@
       color: var(--black);
     }
 
-    .legal-back svg {
-      transition: transform 0.2s;
-    }
-
     .legal-back:hover svg {
       transform: translateX(-3px);
     }
 
+    .legal-back svg {
+      transition: transform 0.2s;
+    }
+
     .legal-inner h1 {
-      font-size: clamp(22px, 3vw, 32px);
-      font-weight: 600;
+      font-family: var(--serif);
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 700;
       margin-bottom: 40px;
+      color: var(--black);
     }
 
     .legal-inner h2 {
-      font-size: 14px;
-      font-weight: 600;
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--grey-mid);
       margin: 32px 0 10px;
     }
 
     .legal-inner p {
       font-size: 14px;
+      font-weight: 300;
       line-height: 1.85;
       color: var(--grey-dark);
       margin-bottom: 14px;
@@ -767,6 +742,7 @@
 
     .legal-inner ul li {
       font-size: 14px;
+      font-weight: 300;
       line-height: 1.85;
       color: var(--grey-dark);
       margin-bottom: 6px;
@@ -782,7 +758,7 @@
     footer {
       background: var(--black);
       color: rgba(255, 255, 255, 0.38);
-      padding: 32px 40px 32px 60px;
+      padding: 32px 40px;
     }
 
     .footer-all {
@@ -794,6 +770,7 @@
       gap: 20px;
       flex-wrap: wrap;
       font-size: 11px;
+      letter-spacing: 0.05em;
     }
 
     .footer-copyright {
@@ -811,6 +788,7 @@
 
     .footer-links a {
       font-size: 11px;
+      letter-spacing: 0.08em;
       color: rgba(255, 255, 255, 0.45);
       cursor: pointer;
       transition: color 0.18s;
@@ -825,10 +803,45 @@
       white-space: nowrap;
     }
 
-    /* Medium — can't fit all in one line: center everything in 3 rows */
+    /* ── RESPONSIVE ── */
+
+    /* ≤1100px: 3 columns */
+    @media (max-width: 1100px) {
+      .paintings-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ≤860px: 2 columns, bio stacks */
     @media (max-width: 860px) {
+      .paintings-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .detail-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-info {
+        position: static;
+        margin-top: 32px;
+      }
+
+      .bio-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .bio-photo {
+        aspect-ratio: 3 / 4;
+      }
+
+      .bio-text-col {
+        position: static;
+      }
+
       footer {
-        padding: 32px 40px 32px 60px;
+        padding: 32px 40px;
       }
 
       .footer-all {
@@ -844,39 +857,7 @@
       }
     }
 
-    /* Small — links also stack vertically */
-    @media (max-width: 480px) {
-      footer {
-        padding: 28px 20px;
-      }
-
-      .footer-links ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1000px) {
-      .paintings-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .detail-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .detail-info {
-        position: static;
-        margin-top: 32px;
-      }
-
-      .bio-text-col {
-        position: static;
-      }
-    }
-
+    /* ≤640px: mobile */
     @media (max-width: 640px) {
       :root {
         --nav-h: 60px;
@@ -887,12 +868,13 @@
       #view-bio,
       #view-contact,
       #view-legal {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 20px;
       }
 
       .header-inner {
-        padding: 0 20px;
+        padding: 0 16px;
       }
 
       nav.desk {
@@ -905,101 +887,29 @@
 
       .paintings-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 24px 12px;
       }
 
-      .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        justify-content: flex-start;
-      }
-
-      .footer-links ul {
-        align-items: flex-start;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        gap: 6px;
-        align-items: flex-start;
+      .bio-photo {
+        aspect-ratio: 2 / 3;
       }
 
       footer {
-        padding: 44px 20px 0;
+        padding: 28px 16px;
+      }
+
+      .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
       }
     }
 
-
-    /* ── TYPOGRAPHY SETTINGS ── */
-
-    /* Body text */
-    body {
-      font-family: 'Brown Pro', sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 1.6;
-      letter-spacing: 0.01em;
-      color: #0a0a0a;
-    }
-
-    /* Navigation links — uppercase, tight tracking */
-    .nav-link {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    /* Large titles (painting names, section heads) */
-    .detail-painting-name,
-    .view-title {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-    }
-
-    /* Small labels (Technique, Année, Prix...) */
-    .detail-meta-label,
-    .contact-label,
-    .view-eyebrow {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      /* wide tracking on small caps */
-      text-transform: uppercase;
-    }
-
-    /* Medium values (technique value, year value) */
-    .detail-meta-value {
-      font-size: 15px;
-      font-weight: 300;
-      letter-spacing: 0.01em;
-    }
-
-    /* Painting name in grid */
-    .painting-name {
-      font-size: 17px;
-      font-weight: 400;
-      letter-spacing: 0.005em;
-    }
-
-    /* Painting meta (technique · year) */
-    .painting-meta {
-      font-size: 12px;
-      font-weight: 400;
-      color: #9a9591;
-      letter-spacing: 0.03em;
-    }
-
-
-
-    /* Footer name */
-    .footer-name {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    /* ≤400px: single column grid */
+    @media (max-width: 400px) {
+      .paintings-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -1008,15 +918,6 @@
 
   <header>
     <div class="header-inner">
-      <!-- <div class="logo-wrap" onclick="navigate('oeuvres')" role="button" tabindex="0"
-        onkeydown="if(event.key==='Enter')navigate('oeuvres')" aria-label="Accueil">
-        <svg viewBox="0 0 900 120" width="450" height="60" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="85" font-family="Didot, Bodoni, 'Playfair Display', serif" font-size="80" letter-spacing="6"
-            fill="#182028">
-            JONATHAN SAADA
-          </text>
-        </svg>
-      </div> -->
       <div class="logo-wrap" onclick="navigate('oeuvres')" role="button" tabindex="0"
         onkeydown="if(event.key==='Enter')navigate('oeuvres')" aria-label="Accueil">
         <svg viewBox="0 0 900 80" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
@@ -1037,12 +938,14 @@
 
   <div id="app">
 
+    <!-- GRID -->
     <div id="view-oeuvres" class="view active">
       <div class="oeuvres-inner">
         <div class="paintings-grid" id="paintings-grid"></div>
       </div>
     </div>
 
+    <!-- DETAIL -->
     <div id="view-detail" class="view">
       <div class="detail-inner">
         <button class="back-link" onclick="navigate('oeuvres')">
@@ -1060,7 +963,9 @@
           </div>
           <div class="detail-info">
             <h2 class="detail-painting-name" id="detail-name"></h2>
-            <dl class="detail-meta" id="detail-meta"></dl>
+            <div class="detail-info-lines" id="detail-info-lines"></div>
+            <span class="detail-estimation-label" id="detail-price-label"></span>
+            <span class="detail-estimation-value" id="detail-price-value"></span>
             <div class="detail-nav">
               <button class="detail-nav-btn" id="btn-prev" onclick="detailNav(-1)">
                 <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
@@ -1080,9 +985,11 @@
       </div>
     </div>
 
+    <!-- BIO -->
     <div id="view-bio" class="view">
       <div class="bio-inner">
         <p class="view-eyebrow" id="eyebrow-bio"></p>
+        <h1 class="bio-title" id="bio-title"></h1>
         <div class="bio-layout">
           <div class="bio-photo-col">
             <div class="bio-photo" id="bio-photo"></div>
@@ -1092,13 +999,15 @@
       </div>
     </div>
 
+    <!-- CONTACT -->
     <div id="view-contact" class="view">
       <div class="contact-inner">
-        <!-- <p class="view-eyebrow" id="eyebrow-contact"></p> -->
+        <h1 class="contact-title">Contact</h1>
         <div class="contact-block" id="contact-block"></div>
       </div>
     </div>
 
+    <!-- LEGAL -->
     <div id="view-legal" class="view">
       <div class="legal-inner">
         <button class="legal-back" onclick="navigate('oeuvres')">
@@ -1263,6 +1172,7 @@
 
     /* ── GRID ── */
     function renderGrid() {
+      const t = T();
       document.getElementById('paintings-grid').innerHTML = paintings.map((p, i) => {
         const name = p['name_' + lang];
         const tech = p['technique_' + lang];
@@ -1273,20 +1183,15 @@
                onkeydown="if(event.key==='Enter')navigate('detail',${i})">
             <div class="painting-thumb">
               <img src="${src}" alt="${name}" loading="lazy" onerror="this.style.display='none'">
-              <div class="thumb-icon">${thumbIcon()}</div>
             </div>
             <p class="painting-name">${name}</p>
-            <p class="painting-meta">${tech} · ${p.year}</p>
+            <p class="painting-meta">${tech}</p>
+            ${p.price ? `<div class="painting-price-block">
+              <span class="painting-price-label">${t.price_label}</span>
+              <span class="painting-price-value">${p.price}</span>
+            </div>` : ''}
           </div>`;
       }).join('');
-    }
-
-    function thumbIcon() {
-      return `<svg width="44" height="56" viewBox="0 0 44 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="3" width="38" height="50" rx="1" stroke="#4a4846" stroke-width="1.2" fill="none"/>
-        <rect x="9" y="11" width="13" height="17" fill="#4a4846" opacity="0.5"/>
-        <rect x="26" y="19" width="10" height="12" fill="#4a4846" opacity="0.3"/>
-      </svg>`;
     }
 
     /* ── DETAIL ── */
@@ -1298,15 +1203,27 @@
       const images = p.images && p.images.length ? p.images : [p.cover];
 
       document.getElementById('back-label').textContent = t.back;
-      document.getElementById('detail-name').innerHTML = `<strong>${name}</strong>`;
-      const metaLines = [
-        p.year ? `<p class="detail-meta-line">(${p.year})</p>` : '',
-        tech ? `<p class="detail-meta-line">${tech}</p>` : '',
-        p.dimensions ? `<p class="detail-meta-line">${p.dimensions}</p>` : '',
-        p.price ? `<p class="detail-meta-line detail-meta-price">${p.price}</p>` : '',
-      ].filter(Boolean).join('');
+      document.getElementById('detail-name').textContent = name;
 
-      document.getElementById('detail-meta').innerHTML = metaLines;
+      // Piasa style: plain running lines of info, no label/value rows
+      const lines = [];
+      if (tech) lines.push(tech);
+      if (p.year) lines.push(p.year);
+      if (p.dimensions) lines.push(p.dimensions);
+      document.getElementById('detail-info-lines').innerHTML = lines.join('<br>');
+
+      // Price as "Estimation" block
+      const priceLabel = document.getElementById('detail-price-label');
+      const priceValue = document.getElementById('detail-price-value');
+      if (p.price) {
+        priceLabel.textContent = t.price_label;
+        priceValue.textContent = p.price;
+        priceLabel.style.display = 'block';
+        priceValue.style.display = 'block';
+      } else {
+        priceLabel.style.display = 'none';
+        priceValue.style.display = 'none';
+      }
 
       const mainImg = document.getElementById('detail-main-img');
       mainImg.src = images[currentThumbIdx] || '';
@@ -1353,12 +1270,18 @@
     /* ── BIO ── */
     function renderBio() {
       const t = T();
+      const a = (bio && bio.artist) ? bio.artist : FB_BIO.artist;
+
+      document.getElementById('eyebrow-bio').textContent = t.nav_bio;
+      document.getElementById('bio-title').textContent = `${a.first_name} ${a.last_name}`;
+
       const photoEl = document.getElementById('bio-photo');
       const src = bio.photo && bio.photo.src ? bio.photo.src : '';
       photoEl.innerHTML = src
         ? `<img src="${src}" alt="${(bio.photo['caption_' + lang]) || ''}" onerror="this.style.display='none'">
            <div class="bio-photo-placeholder">${bioSVG()}</div>`
         : `<div class="bio-photo-placeholder">${bioSVG()}</div>`;
+
       document.getElementById('bio-text').innerHTML =
         (bio['paragraphs_' + lang] || []).map(p => `<p>${p}</p>`).join('');
     }
@@ -1370,14 +1293,19 @@
       </svg>`;
     }
 
-
+    /* ── CONTACT ── */
     function renderContact() {
       const t = T();
       const c = (site && site.contact) ? site.contact : FB_SITE.contact;
       document.getElementById('contact-block').innerHTML = `
-    <p class="contact-title">Contact</p>
-    <p class="contact-line"><a href="mailto:${c.email}">${c.email}</a></p>
-    <p class="contact-line"><a href="${c.phone_href}">${c.phone}</a></p>`;
+        <div class="contact-row">
+          <span class="contact-label">${t.email_label}</span>
+          <span class="contact-value"><a href="mailto:${c.email}">${c.email}</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">${t.phone_label}</span>
+          <span class="contact-value"><a href="${c.phone_href}">${c.phone}</a></span>
+        </div>`;
     }
 
     /* ── LEGAL ── */
@@ -1390,14 +1318,14 @@
     const LEGAL_CONTENT = {
       cookies: `
         <h1>Politique en matière de cookies</h1>
-        <h2>1. Qu'est-ce qu'un cookie ?</h2>
+        <h2>Qu'est-ce qu'un cookie ?</h2>
         <p>Un cookie est un petit fichier constitué de lettres et de chiffres, téléchargé sur votre ordinateur lorsque vous accédez à certains sites Web. En général, les cookies permettent à un site Web de reconnaître l'ordinateur de l'utilisateur.</p>
         <p>La chose la plus importante à savoir sur les cookies que nous plaçons est qu'ils servent à améliorer la convivialité de notre site web, par exemple en mémorisant les préférences du site et les paramètres linguistiques.</p>
-        <h2>2. Pourquoi utilisons-nous des cookies ?</h2>
+        <h2>Pourquoi utilisons-nous des cookies ?</h2>
         <p>Nous pouvons utiliser des cookies et d'autres technologies similaires pour un certain nombre de raisons, par exemple : (i) pour des besoins de sécurité ou de protection contre la fraude ; (ii) pour vous fournir le service que vous avez choisi de recevoir de notre part ; (iii) pour contrôler et analyser les performances et l'efficacité de notre service ; (iv) améliorer votre expérience utilisateur.</p>
-        <h2>3. Tableau des cookies</h2>
+        <h2>Tableau des cookies</h2>
         <p>Ce site utilise uniquement un cookie de préférence linguistique (stocké localement dans votre navigateur) afin de mémoriser la langue choisie entre le français et l'anglais. Aucun cookie tiers n'est déposé.</p>
-        <h2>4. Vos choix</h2>
+        <h2>Vos choix</h2>
         <p>Pour en savoir plus sur les cookies, visitez <a href="https://aboutcookies.org/" target="_blank" rel="noopener">aboutcookies.org</a> ou <a href="https://www.allaboutcookies.org/fr/" target="_blank" rel="noopener">allaboutcookies.org</a>.</p>
         <ul>
           <li><a href="https://support.mozilla.org/fr/kb/cookies-informations-sites-enregistrent" target="_blank" rel="noopener">Paramètres des cookies dans Firefox</a></li>
@@ -1442,7 +1370,6 @@
     function renderFooter() {
       const t = T();
       const a = (bio && bio.artist) ? bio.artist : FB_BIO.artist;
-
       document.getElementById('footer-copyright').innerHTML =
         `© ${new Date().getFullYear()} ${a.first_name} ${a.last_name}. ${t.all_rights}`;
       document.getElementById('footer-madeby').innerHTML = t.made_with;
@@ -1468,12 +1395,6 @@
           year_label: 'Année', price_label: 'Prix',
           prev: 'Précédent', next: 'Suivant',
           email_label: 'Email', phone_label: 'Téléphone',
-          mentions_title: 'Mentions légales',
-          f_editor: 'Éditeur :', f_host: 'Hébergeur :',
-          f_rgpd: 'Données (RGPD) :',
-          f_rgpd_body: "Ce site ne collecte aucune donnée personnelle. Contact :",
-          f_ip: 'Propriété intellectuelle :',
-          f_ip_body: "Toutes les œuvres sont protégées par le droit d'auteur (CPI, art. L. 111-1).",
           all_rights: 'Tous droits réservés.',
           made_with: 'Site réalisé avec soin par <a href="mailto:d.subasi781@gmail.com" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Damla</a>.',
         },
@@ -1484,26 +1405,20 @@
           year_label: 'Year', price_label: 'Price',
           prev: 'Previous', next: 'Next',
           email_label: 'Email', phone_label: 'Phone',
-          mentions_title: 'Legal notices',
-          f_editor: 'Publisher:', f_host: 'Host:',
-          f_rgpd: 'Data (GDPR):',
-          f_rgpd_body: 'This site collects no personal data. Contact:',
-          f_ip: 'Intellectual property:',
-          f_ip_body: 'All artworks protected by copyright (French IP Code, art. L. 111-1).',
           all_rights: 'All rights reserved.',
           made_with: 'Crafted with care by <a href="mailto:d.subasi781@gmail.com" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Damla</a>.',
         },
       })[lang];
     }
 
-    /* ── FALLBACK DATA (exact mirror of JSON files — update both together) ── */
+    /* ── FALLBACK DATA ── */
     const FB_PAINTINGS = [
       { id: "tama", name_fr: "Tama", name_en: "Tama", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "46 × 38 cm", price: "2 000 €", images: ["images/paintings/tama.png", "images/paintings/tama-detail.jpg"], cover: "images/paintings/tama.png" },
       { id: "maelle", name_fr: "Maëlle", name_en: "Maëlle", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/maelle.jpg", "images/paintings/IMG_5129.jpg", "images/paintings/IMG_5126.jpg", "images/paintings/IMG_5125.jpg", "images/paintings/IMG_5127.jpg"], cover: "images/paintings/maelle.jpg" },
       { id: "circe-mythos-1", name_fr: "Circé (Mythos 1)", name_en: "Circé (Mythos 1)", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2025, dimensions: "195 × 130 cm", price: "9 000 €", images: ["images/paintings/circe.jpg", "images/paintings/IMG_5124.jpg", "images/paintings/IMG_5118.jpg", "images/paintings/IMG_5123.jpg", "images/paintings/IMG_5122.jpg"], cover: "images/paintings/circe.jpg" },
       { id: "vinicius", name_fr: "Vinicius", name_en: "Vinicius", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "61 × 46 cm", price: "3 000 €", images: ["images/paintings/IMG_8763_edited.jpg", "images/paintings/vinicius_visage.JPEG"], cover: "images/paintings/IMG_8763_edited.jpg" },
       { id: "lou-allongee", name_fr: "Lou allongée", name_en: "Lou allongée", technique_fr: "Huile sur bois", technique_en: "Oil on wood", year: 2023, dimensions: "130 × 89 cm", price: "Sold", images: ["images/paintings/lou_edited.jpg", "images/paintings/lou_visage.JPEG", "images/paintings/lou_jambes.JPEG", "images/paintings/lou_drape.JPEG"], cover: "images/paintings/lou_edited.jpg" },
-      { id: "sans-titre", name_fr: "Sans titre", name_en: "Untitled", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "110x 125 cm", price: "4500 €", images: ["images/paintings/Sleeping L_edited.jpg", "images/paintings/IMG_5144.jpg", "images/paintings/IMG_5142.jpg", "images/paintings/IMG_5143.jpg", "images/paintings/IMG_5141.jpg"], cover: "images/paintings/Sleeping L_edited.jpg" },
+      { id: "sans-titre", name_fr: "Sans titre", name_en: "Untitled", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "110 × 125 cm", price: "4 500 €", images: ["images/paintings/Sleeping L_edited.jpg", "images/paintings/IMG_5144.jpg", "images/paintings/IMG_5142.jpg", "images/paintings/IMG_5143.jpg", "images/paintings/IMG_5141.jpg"], cover: "images/paintings/Sleeping L_edited.jpg" },
       { id: "thomas-r", name_fr: "Thomas R", name_en: "Thomas R", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "160 × 110 cm", price: "7 000 €", images: ["images/paintings/thomas-r.jpg", "images/paintings/IMG_4939.jpg", "images/paintings/IMG_5148.jpg", "images/paintings/IMG_5149.jpg"], cover: "images/paintings/thomas-r.jpg" },
       { id: "interieur-a-nice", name_fr: "Intérieur à Nice", name_en: "Interior in Nice", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2024, dimensions: "86 × 95 cm", price: "4 500 €", images: ["images/paintings/interieur-nice.jpg", "images/paintings/lou et axel_visage lou.JPEG", "images/paintings/lou et axel_visage axel.JPEG", "images/paintings/lou et axel_main lou.JPEG", "images/paintings/lou et axel_main axel.JPEG"], cover: "images/paintings/interieur-nice.jpg" },
       { id: "gregoire-et-thomas", name_fr: "Grégoire et Thomas", name_en: "Grégoire et Thomas", technique_fr: "Huile sur toile", technique_en: "Oil on canvas", year: 2026, dimensions: "160 × 110 cm", price: "4 000 €", images: ["images/paintings/gregoire-thomas.jpg", "images/paintings/IMG_4948.jpg", "images/paintings/IMG_4951.jpg", "images/paintings/IMG_4950.jpg", "images/paintings/IMG_4949.jpg"], cover: "images/paintings/gregoire-thomas.jpg" },
