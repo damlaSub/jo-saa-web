@@ -864,7 +864,7 @@
     /* ≤640px: mobile padding + grid */
     @media (max-width: 640px) {
       :root {
-        --nav-h: 76px;
+        --nav-h: 90px;
       }
 
       #view-oeuvres,
@@ -916,7 +916,7 @@
     <div class="header-inner">
       <div class="logo-wrap" onclick="navigate('oeuvres')" role="button" tabindex="0"
         onkeydown="if(event.key==='Enter')navigate('oeuvres')" aria-label="Accueil">
-        <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <style>
             .main {
               font-family: "Playfair Display", "Times New Roman", serif;
@@ -929,10 +929,9 @@
           <text x="0" y="78" font-size="42" letter-spacing="-1.5" fill="#182028" class="main">
             SAADA
           </text>
-        </svg>
+        </svg> -->
 
-        <!--one line 
-        <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <style>
             .main {
               font-family: "Playfair Display", "Times New Roman", serif;
@@ -946,6 +945,17 @@
             SAADA
           </text>
         </svg> -->
+        <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="38" font-size="42" letter-spacing="-1.5" fill="#182028"
+            style="font-family: 'Brown Pro'; font-weight: 200;">
+            JONATHAN
+          </text>
+
+          <text x="0" y="78" font-size="42" letter-spacing="-1.5" fill="#182028"
+            style="font-family: 'Brown Pro'; font-weight: 400;">
+            SAADA
+          </text>
+        </svg>
 
       </div>
       <nav class="desk" id="desk-nav"></nav>
