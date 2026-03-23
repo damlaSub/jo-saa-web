@@ -107,7 +107,7 @@
     }
 
     .logo-svg {
-      height: 62px;
+      height: 48px;
       width: auto;
       max-width: 80vw;
     }
@@ -119,9 +119,9 @@
     }
 
     .nav-link {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       position: relative;
       padding-bottom: 2px;
@@ -176,17 +176,17 @@
     .hamburger {
       display: none;
       flex-direction: column;
-      gap: 7px;
+      gap: 8px;
       cursor: pointer;
       background: none;
       border: none;
-      padding: 6px;
+      padding: 10px;
     }
 
     .hamburger span {
       display: block;
-      width: 32px;
-      height: 1.5px;
+      width: 38px;
+      height: 2px;
       background: var(--black);
       transition: transform 0.26s, opacity 0.26s;
     }
@@ -807,6 +807,11 @@
       .hamburger {
         display: flex;
       }
+
+      .mobile-nav {
+        padding: 11px 24px 11px;
+        gap: 20px;
+      }
     }
 
     /* ≤1100px: 3 columns */
@@ -866,6 +871,11 @@
       :root {
         --nav-h: 90px;
       }
+
+      .logo-svg {
+        height: 42px;
+      }
+
 
       #view-oeuvres,
       #view-detail,
@@ -945,17 +955,21 @@
             SAADA
           </text>
         </svg> -->
-        <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="38" font-size="42" letter-spacing="-1.5" fill="#182028"
+        <svg width="220" height="68" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="34" font-size="36" letter-spacing="-1.5" fill="#182028"
             style="font-family: 'Brown Pro'; font-weight: 200;">
             JONATHAN
           </text>
 
-          <text x="0" y="78" font-size="42" letter-spacing="-1.5" fill="#182028"
+          <text x="0" y="70" font-size="36" letter-spacing="-1.5" fill="#182028"
             style="font-family: 'Brown Pro'; font-weight: 400;">
             SAADA
           </text>
         </svg>
+        <!-- <svg width="220" height="68" viewBox="0 0 260 80" ...>
+          <text y="34" font-size="36">JONATHAN</text>
+          <text y="70" font-size="36">SAADA</text>
+        </svg> -->
 
       </div>
       <nav class="desk" id="desk-nav"></nav>
