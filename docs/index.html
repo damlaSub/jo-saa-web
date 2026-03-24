@@ -106,6 +106,7 @@
       margin-left: -3px;
     }
 
+    /* ── LOGO SVG — single line, matched height ── */
     .logo-svg {
       height: 48px;
       width: auto;
@@ -173,14 +174,20 @@
       color: var(--white);
     }
 
+    /* ── HAMBURGER — height matches logo SVG (48px desktop / 42px mobile) ── */
     .hamburger {
       display: none;
       flex-direction: column;
-      gap: 8px;
+      justify-content: center;
+      gap: 7px;
       cursor: pointer;
       background: none;
       border: none;
-      padding: 10px;
+      padding: 0;
+      /* remove extra padding so height is just the lines area */
+      height: 48px;
+      /* same as .logo-svg */
+      width: 38px;
     }
 
     .hamburger span {
@@ -241,7 +248,6 @@
 
 
 
-    /* ── PAINTINGS GRID (Piasa style) ── */
     #view-oeuvres {
       padding: 32px 40px 60px;
     }
@@ -251,10 +257,6 @@
       margin: 0 auto;
     }
 
-    /*
-      Piasa uses 4 columns on large screens, 2 on mobile.
-      Jonathan has fewer columns — using 4 on desktop, 2 on small screens.
-    */
     .paintings-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -866,7 +868,7 @@
       }
     }
 
-    /* ≤640px: mobile padding + grid */
+    /* ≤640px: mobile padding + grid, logo & hamburger shrink together */
     @media (max-width: 640px) {
       :root {
         --nav-h: 90px;
@@ -876,6 +878,10 @@
         height: 42px;
       }
 
+      /* hamburger matches the 42px logo height on mobile */
+      .hamburger {
+        height: 42px;
+      }
 
       #view-oeuvres,
       #view-detail,
@@ -926,50 +932,14 @@
     <div class="header-inner">
       <div class="logo-wrap" onclick="navigate('oeuvres')" role="button" tabindex="0"
         onkeydown="if(event.key==='Enter')navigate('oeuvres')" aria-label="Accueil">
-        <!-- <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <style>
-            .main {
-              font-family: "Playfair Display", "Times New Roman", serif;
-              font-weight: 700;
-            }
-          </style>
-          <text x="" y="38" font-size="42" letter-spacing="-1.5" fill="#182028" class="main">
-            JONATHAN
-          </text>
-          <text x="0" y="78" font-size="42" letter-spacing="-1.5" fill="#182028" class="main">
-            SAADA
-          </text>
-        </svg> -->
 
-        <!-- <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <style>
-            .main {
-              font-family: "Playfair Display", "Times New Roman", serif;
-              font-weight: 700;
-            }
-          </style>
-          <text x="0" y="38" font-size="42" letter-spacing="-1.5" fill="#182028" class="main">
-            JONATHAN
-          </text>
-          <text x="0" y="78" font-size="42" letter-spacing="-1.5" fill="#182028" class="main">
-            SAADA
-          </text>
-        </svg> -->
-        <svg width="220" height="68" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="34" font-size="36" letter-spacing="-1.5" fill="#182028"
-            style="font-family: 'Brown Pro'; font-weight: 200;">
-            JONATHAN
-          </text>
-
-          <text x="0" y="70" font-size="36" letter-spacing="-1.5" fill="#182028"
-            style="font-family: 'Brown Pro'; font-weight: 400;">
-            SAADA
+        <svg class="logo-svg" viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-label="Jonathan Saada">
+          <text y="36" font-size="36" fill="#182028" style="font-family:'Brown Pro',sans-serif; letter-spacing:-1px;">
+            <tspan style="font-weight:200;">JONATHAN</tspan>
+            <tspan dx="12" style="font-weight:400;">SAADA</tspan>
           </text>
         </svg>
-        <!-- <svg width="220" height="68" viewBox="0 0 260 80" ...>
-          <text y="34" font-size="36">JONATHAN</text>
-          <text y="70" font-size="36">SAADA</text>
-        </svg> -->
 
       </div>
       <nav class="desk" id="desk-nav"></nav>
