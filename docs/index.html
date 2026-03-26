@@ -92,10 +92,10 @@
       height: 100%;
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 0 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0 58px;
     }
 
     .logo-wrap {
@@ -249,12 +249,14 @@
 
 
     #view-oeuvres {
-      padding: 32px 40px 60px;
+      padding: 32px 58px 60px;
     }
 
     .oeuvres-inner {
       max-width: var(--max-w);
       margin: 0 auto;
+      /* padding-left: 37px;
+      padding-right: 37px; */
     }
 
     .paintings-grid {
@@ -332,7 +334,7 @@
 
     /* ── PAINTING DETAIL ── */
     #view-detail {
-      padding: 48px 40px 80px;
+      padding: 48px 58px 80px;
     }
 
     .detail-inner {
@@ -549,7 +551,7 @@
 
     /* ── BIOGRAPHY ── */
     #view-bio {
-      padding: 64px 40px 80px;
+      padding: 64px 58px 80px;
     }
 
     .bio-inner {
@@ -611,7 +613,7 @@
 
     /* ── CONTACT ── */
     #view-contact {
-      padding: 72px 40px 80px;
+      padding: 72px 58px 80px;
     }
 
     .contact-inner {
@@ -668,7 +670,7 @@
 
     /* ── LEGAL PAGES ── */
     #view-legal {
-      padding: 64px 40px 80px;
+      padding: 64px 58px 80px;
     }
 
     .legal-inner {
@@ -753,7 +755,7 @@
     footer {
       background: var(--black);
       color: rgba(255, 255, 255, 0.38);
-      padding: 32px 40px;
+      padding: 32px 58px;
     }
 
     .footer-all {
@@ -883,16 +885,6 @@
         height: 42px;
       }
 
-      #view-oeuvres,
-      #view-detail,
-      #view-bio,
-      #view-contact,
-      #view-legal {
-        padding-left: 16px;
-        padding-right: 16px;
-        padding-top: 20px;
-      }
-
       .header-inner {
         padding: 0 20px;
       }
@@ -907,13 +899,23 @@
       }
 
       footer {
-        padding: 28px 16px;
+        padding: 28px 20px;
       }
 
       .footer-links ul {
         flex-direction: column;
         align-items: center;
         gap: 10px;
+      }
+
+      #view-oeuvres,
+      #view-detail,
+      #view-bio,
+      #view-contact,
+      #view-legal {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
       }
     }
 
